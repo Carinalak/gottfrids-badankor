@@ -1,0 +1,45 @@
+/* Hamburgerknapp */
+/*nav:not(.open) {
+    @include visually-hidden;
+}
+*/
+button {
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  padding: 4px 8px;
+  color: #ffffff;
+  background: transparent;
+}
+button span {
+  display: block;
+  background-color: #000000;
+  width: 35px;
+  height: 4px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+}
+buttonopen span:nth-child(2) {
+  display: none;
+}
+buttonopen span:nth-child(1) {
+  transform: rotate(45deg);
+}
+buttonopen span:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+/* Hamburgerknapp slutar */
+/*
+
+@import "mobile";
+@media screen and (min-width: 640px) {
+@import "tablet";
+}
+@media screen and (min-width: 800px) {
+@import "desktop";
+}
+*/
+body {
+  background-color: pink;
+}
