@@ -87,16 +87,39 @@ h1 {
     padding-right: 5%;
   }
 }
+body {
+  background-color: #ffffff;
+}
+
+.sales-page {
+  padding-top: 70px;
+}
+
+@media screen and (min-width: 640px) {
+  main {
+    display: flex;
+    flex-direction: row;
+  }
+  .void-left {
+    border: 1px solid black;
+    width: 20%;
+    height: 100vh;
+  }
+  .void-right {
+    border: 1px solid black;
+    width: 20%;
+    height: 100vh;
+  }
+  .sales-page {
+    width: 60%;
+    padding-top: 100px;
+  }
+}
 /*
 @import "vendor/normalize";
-@import "mobile";
-@media screen and (min-width: 640px) {
-@import "tablet";
-}
+
+
 @media screen and (min-width: 800px) {
 @import "desktop";
 }
 */
-body {
-  background-color: #ffffff;
-}

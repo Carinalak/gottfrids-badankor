@@ -6,3 +6,4 @@
 
 */
 
+document.querySelector('#list').innerHTML = '<ul><li>Test</li></ul>';

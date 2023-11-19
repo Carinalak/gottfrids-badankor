@@ -1,0 +1,18 @@
+main {
+    display: flex;
+    flex-direction: row;
+}
+.void-left {
+    border: 1px solid black;
+    width: 20%;
+    height: 100vh;
+}
+.void-right {
+    border: 1px solid black;
+    width: 20%;
+    height: 100vh;
+}
+.sales-page {
+    width: 60%;
+    padding-top: 100px;
+}
