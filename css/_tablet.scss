@@ -3,11 +3,13 @@ main {
     flex-direction: row;
 }
 .void-left {
+    visibility: visible;
     border: 1px solid black;
     width: 20%;
     height: 100vh;
 }
 .void-right {
+    visibility: visible;
     border: 1px solid black;
     width: 20%;
     height: 100vh;

@@ -91,8 +91,21 @@ body {
   background-color: #ffffff;
 }
 
+.void-left {
+  border: 1px solid black;
+  visibility: hidden;
+}
+
+.void-right {
+  border: 1px solid black;
+  visibility: hidden;
+}
+
 .sales-page {
   padding-top: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 640px) {
@@ -101,11 +114,13 @@ body {
     flex-direction: row;
   }
   .void-left {
+    visibility: visible;
     border: 1px solid black;
     width: 20%;
     height: 100vh;
   }
   .void-right {
+    visibility: visible;
     border: 1px solid black;
     width: 20%;
     height: 100vh;
@@ -118,8 +133,4 @@ body {
 /*
 @import "vendor/normalize";
 
-
-@media screen and (min-width: 800px) {
-@import "desktop";
-}
 */

@@ -1,6 +1,17 @@
 body {
     background-color: #ffffff;
 }
+.void-left {
+    border: 1px solid black;
+    visibility: hidden;
+}
+.void-right {
+    border: 1px solid black;
+    visibility: hidden;
+}
 .sales-page {
     padding-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -7,3 +7,4 @@
 */
 
 document.querySelector('#list').innerHTML = '<ul><li>Test</li></ul>';
+document.querySelector('#imageContainer').innerHTML = '<img src="img/badring.jpg" width="250" height="250">';
