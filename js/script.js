@@ -5,25 +5,9 @@
 4. Sida 3: "Shopping-cart-page". Behöver Trashbin, formulär till beställarens uppgifter.
 
 */
-const duckies = [
-    {
-        name: 'Anka med badring',
-        price: 29,
-    },
-    {
-        name: 'Affärskvinna',
-        price: 39,
-    },
-    {
-        name : 'Dark duck',
-        price: 39,
-    },
-];
-const duckContainer = document.querySelector('#duckies');
 
-duckContainer.innerHTML = `<div>${duckies[0].name}</div>`
 
-// Här börjar koden från gamla plusknapparna:
+// PAGE 1 Sales-page:
 
 const increaseBtn = document.querySelector('#increase');        // väljer id:t increase knappen
 const decreaseBtn = document.querySelector('#decrease');        // väljer id:t decrease knappen
@@ -56,12 +40,41 @@ function decreaseAmount() {                                     // En funktion t
     updatePrice();                                              // functionen anropas   
 }
 
-
 function  updatePrice() {       
     startAmount.value = amount;                                // gör en funktion som anropas ovan.
     price.innerHTML = amount * 15;
 }
 
+// Sida 2
+const duckies = [
+    {
+        name: 'Anka med badring',
+        price: 29,
+    },
+    {
+        name: 'Affärskvinna',
+        price: 39,
+    },
+    {
+        name: 'Dark duck',
+        price: 39,
+    },
+    {
+        name: 'Drottning',
+        price: 39,
+    },
+    {
+        name: 'Examen',
+        price: 29,
+    },
+];
+const duckContainer = document.querySelector('#duckies');
+
+
+for (let i = 0; i < duckies.length; i++) {
+    console.log(i);
+    duckContainer.innerHTML += `<div id="duckies-${i}"><button class="decrease" id="decrease-${i}">-</button>${duckies[i].name}</div>`;   
+}
 
 
 
