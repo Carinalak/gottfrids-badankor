@@ -7,10 +7,11 @@
 */
 
 document.querySelector('#list').innerHTML = '<ul><li>Test</li></ul>';
-document.querySelector('#imageContainer').innerHTML = '<img src="img/badring.jpg" width="250" height="250">';
+
+//document.querySelector('#imageContainer').innerHTML = '<img src="img/affarskvinna.jpg" width="250" height="250">';
 
 
 
 
-document.querySelector('#imageContainer2').innerHTML = '<img src="img/affarskvinna.jpg" width="250" height="250">';
+document.querySelector('#imageContainer2').innerHTML = '<img src="img/badring.jpg" width="250" height="250" alt="Anka med badring">';
 
