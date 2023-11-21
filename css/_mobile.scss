@@ -2,9 +2,6 @@ body {
     background-color: #ffffff;
     
 }
-main {
-   
-}
 .void-left {
     border: 1px solid black;
     visibility: hidden;
@@ -19,4 +16,16 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+.items-page {
+    border: 1px solid blue;
+}
+.shoppig-cart {
+    border: 1px solid blue;
+}
+.customer-data {
+    border: 1px solid blue;
+}
+.number-box {
+    width: 30px;
 }

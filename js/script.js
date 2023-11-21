@@ -1,8 +1,8 @@
 /*
 1. en fungerande menyknapp kanske
-2. Sida 1: "salespage". En plus och minusknapp, antal, pris, bild.
-3. Sida 2: "open-item-page".
-4. Sida 3: "Shopping-cart-page". Behöver Trashbin, formulär till beställarens uppgifter.
+2. Sida 1: "items-page". En plus och minusknapp, antal, pris, bild.
+3. Sida 2: "shopping-cart". Behöver Trashbin.
+4. Sida 3: "customer-data". Formulär till kundens uppgifter.
 
 */
 
@@ -13,7 +13,7 @@ const increaseBtn = document.querySelector('#increase');        // väljer id:t 
 const decreaseBtn = document.querySelector('#decrease');        // väljer id:t decrease knappen
 const startAmount = document.querySelector('#amount');
 const price = document.querySelector('#price');
-let amount = Number(startAmount.value);                               // Genom att skriva "Number" framför tvingas strängen att bli en siffra.
+let amount = Number(startAmount.value);                         // Genom att skriva "Number" framför tvingas strängen att bli en siffra.
 
 
 increaseBtn.addEventListener('click', increaseAmount);          // Event - lyssnare med 'click' på increaseBtn
