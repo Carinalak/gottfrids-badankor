@@ -3,144 +3,58 @@
 2. Sida 1: "items-page". En plus och minusknapp, antal, pris, bild.
 3. Sida 2: "shopping-cart". Behöver Trashbin.
 4. Sida 3: "customer-data". Formulär till kundens uppgifter.
+
 */
-// duckContainer
-// -------------------------------------  NY KOD PROJEKTSETUP: ----------------------------------------------------
-// --------------------------------------- PAGE 1 Sales-page:---------------------------------------------------
-const duckHtmlContainer = document.querySelector('#duckContainer');
-const ducks = [
-    {
-        name: 'Anka med badring',
-        price: 29,
-        images:  [
-            {
-                src: '../img/badring.jpg',
-                alt: 'Anka med badring', 
-            },
-            {
-                src: '../img/badring.jpg',
-                alt: 'Anka med badring',
-            },
-        ],
-        rating: 3,
-        amount: 0,
-        category: 'boy-ducks',
-    }, 
-    {
-        name: 'Affärskvinna',
-        price: 39,
-        images:  [
-            {
-                src: '../img/affarskvinna.jpg',
-                alt: 'Anka affärskvinna',
-            },
-            {
-                src: '../img/affarskvinna.jpg',
-                alt: 'Anka affärskvinna',
-            },
-        ],
-        rating: 3,
-        amount: 0,
-        category: 'girl-ducks',
-    },
-    {
-        name: 'Farfar',
-        price: 39,
-        images:  [
-            {
-                src: '../img/farfar.jpg',
-                alt: 'Anka farfar',
-            },
-            {
-                src: '../img/farfar.jpg',
-                alt: 'Anka affärskvinna',
-            },
-        ],
-        rating: 3,
-        amount: 0,
-        category: 'boy-ducks',
-    }, 
-];
 
-function decreaseAmount(e) {
-    const index = e.currentTarget.dataset.id;
-    if(ducks[index].amount <= 0) {
-        ducks[index].amount = 0;
-    } else {
-        ducks[index].amount -= 1;
+
+// PAGE 1 Sales-page:
+/*
+const increaseBtn = document.querySelector('#increase');        // väljer id:t increase knappen
+const decreaseBtn = document.querySelector('#decrease');        // väljer id:t decrease knappen
+const startAmount = document.querySelector('#amount');
+const price = document.querySelector('#price');
+let amount = Number(startAmount.value);                         // Genom att skriva "Number" framför tvingas strängen att bli en siffra.
+
+
+increaseBtn.addEventListener('click', increaseAmount);          // Event - lyssnare med 'click' på increaseBtn
+decreaseBtn.addEventListener('click', decreaseAmount); 
+startAmount.addEventListener('change', updateAmount);
+function updateAmount(e) {
+    amount = Number(e.target.value);
+    updatePrice();
+}
+function increaseAmount() {                                     // En funktion till event - lyssnaren
+    amount += 1;
+    
+
+    updatePrice();                                              // functionen anropas   
+}
+
+function decreaseAmount() {                                     // En funktion till event - lyssnaren
+    if (amount - 1 < 0 ) {                                      // Om amount är mindre än noll så:
+        return;                                                 // gör en return = efter return körs inte koden vidare.
     }
-    printDucks();
-}
-
-function increaseAmount(e) {
-    const index = e.currentTarget.dataset.id;
-    ducks[index].amount += 1;
-    printDucks();
-    
+    amount -= 1;
     
 
-};
-
-function printDucks() {
-    duckHtmlContainer.innerHTML = '';
-    ducks.forEach((duck, index) => {
-
-        duckHtmlContainer.innerHTML += 
-        `
-        <article>
-            <h3>${duck.name}</h3> 
-            <div>Price: <span>${duck.price}</span> kr</div>
-            <div>Rating: <span>${duck.rating}</span> </div> <!-- TO DO bildspel -->
-            <div>Amount: <span>${duck.amount}</span> </div>
-            <button class="minus" data-id="${index}">-</button>
-            <button class="plus" data-id="${index}">+</button>
-        
-        </article>
-
-        
-        `;
-
-    });
-
-    const minusBtns = document.querySelectorAll('button.minus');
-    const plusBtns = document.querySelectorAll('button.plus');
-
-    minusBtns.forEach(btn => {
-        btn.addEventListener('click', decreaseAmount);
-    });
-
-        plusBtns.forEach(btn => {
-            btn.addEventListener('click', increaseAmount);
-
-    });
-
+    updatePrice();                                              // functionen anropas   
 }
-printDucks();
+
+function  updatePrice() {       
+    startAmount.value = amount;                                // gör en funktion som anropas ovan.
+    price.innerHTML = amount * 15;
+}
+
+*/
+// --------------------------------  NY KOD PROJEKTSETUP: -------------------------------------------
+// --------------------------------------- SIDA 1 ---------------------------------------------------
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// --------------------------------------- PAGE 2 ---------------------------------------------------
+// Sida 2 
 /*
 const duckies = [
     {
