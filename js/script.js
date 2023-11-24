@@ -8,6 +8,8 @@
 // -------------------------------------  NY KOD PROJEKTSETUP: ----------------------------------------------------
 // --------------------------------------- PAGE 1 Sales-page:---------------------------------------------------
 const duckHtmlContainer = document.querySelector('#duckContainer');
+const cartHtmlContainer = document.querySelector('#cart');
+
 const ducks = [
     {
         name: 'Anka med badring',
@@ -76,10 +78,8 @@ function increaseAmount(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     printDucks();
-    
-    
 
-};
+}
 
 function printDucks() {
     duckHtmlContainer.innerHTML = '';
@@ -96,10 +96,7 @@ function printDucks() {
             <button class="plus" data-id="${index}">+</button>
         
         </article>
-
-        
         `;
-
     });
 
     const minusBtns = document.querySelectorAll('button.minus');
@@ -113,8 +110,31 @@ function printDucks() {
             btn.addEventListener('click', increaseAmount);
 
     });
+    printCartDucks();
 
 }
+
+// Ducks som man har beställt fler än 0 av:
+function printCartDucks() {
+    cartHtmlContainer.innerHTML = '';
+
+    let sum  = 0;
+
+    ducks.forEach(duck => {
+        if (duck.amount > 0) {
+            sum += duck.amount * duck.price;
+            cartHtmlContainer.innerHTML += `
+            <article>
+                <span>${duck.name}</span> | <span>${duck.amount}</span> | <span>${duck.amount * duck.price} kr</span>
+            </article>
+            `;
+        }
+
+    });
+    cartHtmlContainer.innerHTML += `<p>Totalt: ${sum} kr</p>`;
+
+}
+
 printDucks();
 
 
