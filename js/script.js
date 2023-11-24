@@ -14,16 +14,14 @@ const ducks = [
     {
         name: 'Anka med badring',
         price: 29,
-        images:  [
+        img:
             {
                 src: '../img/badring.jpg',
                 alt: 'Anka med badring', 
+                width: 150,
+                height: 150,
             },
-            {
-                src: '../img/badring.jpg',
-                alt: 'Anka med badring',
-            },
-        ],
+
         rating: 3,
         amount: 0,
         category: 'boy-ducks',
@@ -31,7 +29,7 @@ const ducks = [
     {
         name: 'Affärskvinna',
         price: 39,
-        images:  [
+        img:  [
             {
                 src: '../img/affarskvinna.jpg',
                 alt: 'Anka affärskvinna',
@@ -48,7 +46,7 @@ const ducks = [
     {
         name: 'Farfar',
         price: 39,
-        images:  [
+        img:  [
             {
                 src: '../img/farfar.jpg',
                 alt: 'Anka farfar',
@@ -81,6 +79,7 @@ function increaseAmount(e) {
 
 }
 
+// Skriver ut produkterna:
 function printDucks() {
     duckHtmlContainer.innerHTML = '';
     ducks.forEach((duck, index) => {
@@ -89,6 +88,8 @@ function printDucks() {
         `
         <article>
             <h3>${duck.name}</h3> 
+            <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
+            height="${duck.img.height}" loading="lazy"></div>
             <div>Price: <span>${duck.price}</span> kr</div>
             <div>Rating: <span>${duck.rating}</span> </div> <!-- TO DO bildspel -->
             <div>Amount: <span>${duck.amount}</span> </div>
@@ -119,12 +120,14 @@ function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
 
     let sum  = 0;
-
+//----------------------  Varukorg ------------------------------------------------
     ducks.forEach(duck => {
         if (duck.amount > 0) {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article>
+            <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
+            height="${duck.img.height}" loading="lazy"></div>
                 <span>${duck.name}</span> | <span>${duck.amount}</span> | <span>${duck.amount * duck.price} kr</span>
             </article>
             `;
