@@ -18,8 +18,8 @@ const ducks = [
             {
                 src: '../img/badring.jpg',
                 alt: 'Anka med badring', 
-                width: 150,
-                height: 150,
+                width: 280,
+                height: 280,
             },
 
         rating: 3,
@@ -29,16 +29,13 @@ const ducks = [
     {
         name: 'Affärskvinna',
         price: 39,
-        img:  [
+        img:
             {
                 src: '../img/affarskvinna.jpg',
                 alt: 'Anka affärskvinna',
+                width: 280,
+                height: 280,
             },
-            {
-                src: '../img/affarskvinna.jpg',
-                alt: 'Anka affärskvinna',
-            },
-        ],
         rating: 3,
         amount: 0,
         category: 'girl-ducks',
@@ -46,19 +43,30 @@ const ducks = [
     {
         name: 'Farfar',
         price: 39,
-        img:  [
+        img: 
             {
                 src: '../img/farfar.jpg',
                 alt: 'Anka farfar',
-            },
-            {
-                src: '../img/farfar.jpg',
-                alt: 'Anka affärskvinna',
-            },
-        ],
-        rating: 3,
+                width: 280,
+                height: 280,
+            },       
+        rating: 2,
         amount: 0,
         category: 'boy-ducks',
+    }, 
+    {
+        name: 'Farmor',
+        price: 39,
+        img: 
+            {
+                src: '../img/farmor.jpg',
+                alt: 'Anka farmor',
+                width: 280,
+                height: 280,
+            },       
+        rating: 2,
+        amount: 0,
+        category: 'girl-ducks',
     }, 
 ];
 
@@ -86,15 +94,18 @@ function printDucks() {
 
         duckHtmlContainer.innerHTML += 
         `
-        <article>
-            <h3>${duck.name}</h3> 
+        <article class="img-price-amount-info">
+            
             <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
             height="${duck.img.height}" loading="lazy"></div>
-            <div>Price: <span>${duck.price}</span> kr</div>
-            <div>Rating: <span>${duck.rating}</span> </div> <!-- TO DO bildspel -->
-            <div>Amount: <span>${duck.amount}</span> </div>
-            <button class="minus" data-id="${index}">-</button>
-            <button class="plus" data-id="${index}">+</button>
+            <h3>${duck.name}</h3> 
+            <div class="price"><span>${duck.price}</span> kr/st</div>
+            <div class="rating">Betyg: <span>${duck.rating}</span> </div> 
+            <div class="plus-minus">
+            <button class="minus" data-id="${index}"> - </button>
+            <div class="amount-between"> <span> ${duck.amount} </span> </div>
+            <button class="plus" data-id="${index}"> + </button>
+            </div>
         
         </article>
         `;
@@ -126,7 +137,7 @@ function printCartDucks() {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article>
-            <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
+             <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
             height="${duck.img.height}" loading="lazy"></div>
                 <span>${duck.name}</span> | <span>${duck.amount}</span> | <span>${duck.amount * duck.price} kr</span>
             </article>
@@ -141,10 +152,31 @@ function printCartDucks() {
 printDucks();
 
 
+/*
 
-
-
-
+const products = [
+	{
+		images: [
+			{
+				src: 'bild1.jpg'
+			},
+			{
+				src: 'bild2.jpg'
+			},
+		],
+	},
+];
+ 
+products.forEach(product => {
+	const innerHTML = '';
+	const images = '';
+ 
+	for (let i = 0; i < product.images.length; i++) {
+		images += `<img src="${product.images[i]}">`;
+	}
+	innerHTML += images;
+});
+*/
 
 
 
