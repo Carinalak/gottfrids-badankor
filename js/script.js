@@ -84,7 +84,6 @@ function increaseAmount(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     printDucks();
-
 }
 
 // Skriver ut produkterna:
@@ -97,22 +96,24 @@ function printDucks() {
         <article class="img-price-amount-info">
             
             <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
-            height="${duck.img.height}" loading="lazy"></div>
+                height="${duck.img.height}" loading="lazy">
+            </div>
             <h3>${duck.name}</h3> 
-            <div class="price"><span>${duck.price}</span> kr/st</div>
+            <div class="price"><span>${duck.price}</span> kr</div>
             <div class="rating">Betyg: <span>${duck.rating}</span> </div> 
             <div class="plus-minus">
-            <button class="minus" data-id="${index}"> - </button>
-            <div class="amount-between"> <span> ${duck.amount} </span> </div>
-            <button class="plus" data-id="${index}"> + </button>
+                <button class="minus" data-id="${index}"> - </button>
+                <div class="amount-between"> <span> ${duck.amount} </span></div>
+                <button class="plus" data-id="${index}"> + </button>
+                <button class="cart-btn"> Lägg i varukorgen </button>
             </div>
-        
         </article>
         `;
     });
 
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
+    
 
     minusBtns.forEach(btn => {
         btn.addEventListener('click', decreaseAmount);
@@ -136,16 +137,19 @@ function printCartDucks() {
         if (duck.amount > 0) {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
-            <article>
-             <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
-            height="${duck.img.height}" loading="lazy"></div>
-                <span>${duck.name}</span> | <span>${duck.amount}</span> | <span>${duck.amount * duck.price} kr</span>
+            <article class="cart">
+             <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
+            height="40" loading="lazy"></div>
+            
+                <span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span><div class="cart-text"><span>${duck.amount * duck.price} kr</span>
+            </div>
             </article>
             `;
         }
 
     });
-    cartHtmlContainer.innerHTML += `<p>Totalt: ${sum} kr</p>`;
+    cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
+    <button class="checkout-btn">Gå till kassan</button></p>`;
 
 }
 
