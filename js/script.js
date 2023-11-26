@@ -105,7 +105,7 @@ function printDucks() {
                 <button class="minus" data-id="${index}"> - </button>
                 <div class="amount-between"> <span> ${duck.amount} </span></div>
                 <button class="plus" data-id="${index}"> + </button>
-                <button class="cart-btn"> Lägg i varukorgen </button>
+                <button class="add-to-cart"> Lägg i varukorgen </button>
             </div>
         </article>
         `;
@@ -113,8 +113,14 @@ function printDucks() {
 
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
-    
 
+    //Nedan nytt:
+    //const addToCartBtns = document.querySelectorAll('button.add-to-cart');
+
+    //function 
+   
+    
+// Ovan NYTT
     minusBtns.forEach(btn => {
         btn.addEventListener('click', decreaseAmount);
     });
@@ -140,8 +146,8 @@ function printCartDucks() {
             <article class="cart">
              <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
             height="40" loading="lazy"></div>
-            
-                <span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span><div class="cart-text"><span>${duck.amount * duck.price} kr</span>
+            <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
+            <div class="cart-text"><span>${duck.amount * duck.price} kr</span></div>
             </div>
             </article>
             `;
@@ -149,7 +155,9 @@ function printCartDucks() {
 
     });
     cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
-    <button class="checkout-btn">Gå till kassan</button></p>`;
+    <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
+    
+    `;
 
 }
 
