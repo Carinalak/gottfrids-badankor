@@ -148,6 +148,7 @@ function printDucks() {
         </article>
         `;
     });
+    
 
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
