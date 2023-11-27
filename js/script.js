@@ -79,11 +79,20 @@ function decreaseAmount(e) {
     }
     printDucks();
 }
-
 function increaseAmount(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     printDucks();
+}
+// Tar bort från varukorgen:
+function removeDuck(e) {
+    const index = e.currentTarget.dataset.id;
+    if (ducks[index].amount > -1) {
+        ducks[index].amount.splice(amount, 1);      
+    } else {
+        ducks[index].amount -= 1;
+    }
+    printCartDucks();
 }
 
 // Skriver ut produkterna:
@@ -113,8 +122,9 @@ function printDucks() {
 
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
+    const removeBtns = document.querySelectorAll('button.material-symbols-outlined');
 
-    //Nedan nytt:
+//Nedan nytt:
     //const addToCartBtns = document.querySelectorAll('button.add-to-cart');
 
     //function 
@@ -124,14 +134,16 @@ function printDucks() {
     minusBtns.forEach(btn => {
         btn.addEventListener('click', decreaseAmount);
     });
-
-        plusBtns.forEach(btn => {
-            btn.addEventListener('click', increaseAmount);
-
+    plusBtns.forEach(btn => {
+        btn.addEventListener('click', increaseAmount);
+    });
+    removeBtns.forEach(btn => {
+        btn.addEventListener('click', removeDuck);
     });
     printCartDucks();
-
 }
+    
+
 
 // Ducks som man har beställt fler än 0 av:
 function printCartDucks() {
@@ -144,61 +156,40 @@ function printCartDucks() {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
-             <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
-            height="40" loading="lazy"></div>
-            <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
-            <div class="cart-text"><span>${duck.amount * duck.price} kr</span></div>
-            </div>
+                <div><button class="material-symbols-outlined">delete</button></div>
+                <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
+                height="40" loading="lazy"></div>
+                <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
+                <div class="cart-text"><span>${duck.amount * duck.price} kr</span></div>
+                </div>
             </article>
             `;
         }
-
     });
     cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
-    
     `;
-
 }
+    printDucks();
 
-printDucks();
+    // Nedan nytt Thrash:
+  
+   /*
+    const duckRemove = Array.from(document.querySelectorAll('li button')); // detta gör om node-list till en array-list
+    duckRemove.forEach((item) => {       //för varje sak i listan
+        item.addEventListener('click', removeDuck);    // produkten tas bort när man klickar på den.
+    });
 
-
-/*
-
-const products = [
-	{
-		images: [
-			{
-				src: 'bild1.jpg'
-			},
-			{
-				src: 'bild2.jpg'
-			},
-		],
-	},
-];
- 
-products.forEach(product => {
-	const innerHTML = '';
-	const images = '';
- 
-	for (let i = 0; i < product.images.length; i++) {
-		images += `<img src="${product.images[i]}">`;
-	}
-	innerHTML += images;
-});
+    function removeDuck(e) {
+        const index = ducks.indexOf(e.target.dataset.name);
+        if (index > -1) {
+            ducks.splice(index, 1);
+            printCartDucks();
+        }
+    
+    }
 */
-
-
-
-
-
-
-
-
-
-
+    // Ovan nytt Thrash
 
 
 
