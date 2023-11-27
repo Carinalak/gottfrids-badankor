@@ -68,6 +68,34 @@ const ducks = [
         amount: 0,
         category: 'girl-ducks',
     }, 
+    {
+        name: 'Dark Duck',
+        price: 39,
+        img: 
+            {
+                src: '../img/darkduck.jpg',
+                alt: 'Dark Duck',
+                width: 280,
+                height: 280,
+            },       
+        rating: 1,
+        amount: 0,
+        category: 'boy-ducks',
+    }, 
+    {
+        name: 'Snorklare',
+        price: 29,
+        img: 
+            {
+                src: '../img/snorklare.jpg',
+                alt: 'Snorklare',
+                width: 280,
+                height: 280,
+            },       
+        rating: 3,
+        amount: 0,
+        category: 'boy-ducks',
+    }, 
 ];
 
 function decreaseAmount(e) {
@@ -86,9 +114,10 @@ function increaseAmount(e) {
 }
 // Tar bort från varukorgen:
 function removeDuck(e) {
+    
     const index = e.currentTarget.dataset.id;
-    if (ducks[index].amount > -1) {
-        ducks[index].amount.splice(amount, 1);      
+    if (index > -1) {
+        cart.splice(index, 1);      
     } else {
         ducks[index].amount -= 1;
     }
@@ -122,7 +151,7 @@ function printDucks() {
 
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
-    const removeBtns = document.querySelectorAll('button.material-symbols-outlined');
+    const removeBtns = document.querySelectorAll('button.material-symbols-outlined'); 
 
 //Nedan nytt:
     //const addToCartBtns = document.querySelectorAll('button.add-to-cart');
@@ -150,13 +179,13 @@ function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
 
     let sum  = 0;
-//----------------------  Varukorg ------------------------------------------------
+//---------------------------------  Varukorg ------------------------------------------------
     ducks.forEach(duck => {
         if (duck.amount > 0) {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
-                <div><button class="material-symbols-outlined">delete</button></div>
+                <div><button id="deleteIcon" class="material-symbols-outlined">delete</button></div>
                 <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
                 height="40" loading="lazy"></div>
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
@@ -169,8 +198,21 @@ function printCartDucks() {
     cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
     `;
+    cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
+    `;
 }
     printDucks();
+
+
+
+
+
+
+
+
+
+
+
 
     // Nedan nytt Thrash:
   
