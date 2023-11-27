@@ -16,7 +16,7 @@ const ducks = [
         price: 29,
         img:
             {
-                src: 'img/badring.jpg',
+                src: '/img/badring.jpg',
                 alt: 'Anka med badring', 
                 width: 280,
                 height: 280,
@@ -119,11 +119,12 @@ function removeDuck(e) {
     const index = e.currentTarget.id.replace('delete-', '');
     
     if (index > -1) {
-        ducks[index].amount = 0; // Set the amount to 0 to remove it from the cart
+        ducks[index].amount = 0; 
     }
     
     printCartDucks();
 }
+
 // Skriver ut produkterna:
 function printDucks() {
     duckHtmlContainer.innerHTML = '';
@@ -187,7 +188,7 @@ function printCartDucks() {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
-                <div><button id="deleteIcon" class="material-symbols-outlined delete-cart">delete</button></div> 
+                <div><button id="delete-${index}" class="material-symbols-outlined delete-cart">delete</button></div> 
                 <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
                 height="40" loading="lazy"></div>
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
