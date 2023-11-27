@@ -114,6 +114,7 @@ function increaseAmount(e) {
 }
 // Tar bort från varukorgen:
 function removeDuck(e) {
+    console.log(e.currentTarget);
     
     const index = e.currentTarget.dataset.id;
     if (index > -1) {
@@ -121,7 +122,7 @@ function removeDuck(e) {
     } else {
         ducks[index].amount -= 1;
     }
-    printCartDucks();
+    //printCartDucks();
 }
 
 // Skriver ut produkterna:
@@ -148,11 +149,12 @@ function printDucks() {
         </article>
         `;
     });
-    
+
 
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
-    const removeBtns = document.querySelectorAll('button.material-symbols-outlined'); 
+   
+    
 
 //Nedan nytt:
     //const addToCartBtns = document.querySelectorAll('button.add-to-cart');
@@ -167,10 +169,12 @@ function printDucks() {
     plusBtns.forEach(btn => {
         btn.addEventListener('click', increaseAmount);
     });
-    removeBtns.forEach(btn => {
-        btn.addEventListener('click', removeDuck);
-    });
-    printCartDucks();
+   
+    printCartDucks(); 
+
+   
+    
+    
 }
     
 
@@ -186,7 +190,7 @@ function printCartDucks() {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
-                <div><button id="deleteIcon" class="material-symbols-outlined">delete</button></div>
+                <div><button id="deleteIcon" class="material-symbols-outlined delete-cart">delete</button></div> 
                 <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
                 height="40" loading="lazy"></div>
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
@@ -195,6 +199,13 @@ function printCartDucks() {
             </article>
             `;
         }
+    });
+    const removeBtns = document.querySelectorAll('.delete-cart'); 
+    
+    console.log(removeBtns);
+    removeBtns.forEach(btn => {
+        console.log(btn);
+        btn.addEventListener('click', removeDuck);
     });
     cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
