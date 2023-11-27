@@ -106,18 +106,20 @@ function decreaseAmount(e) {
         ducks[index].amount -= 1;
     }
     printDucks();
+    printCartDucks();
 }
 function increaseAmount(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     printDucks();
+    printCartDucks();
 }
 // Tar bort från varukorgen:
 function removeDuck(e) {
-    console.log(e.currentTarget);
     
-    const index = e.currentTarget.dataset.id;
+    const index = e.currentTarget.id.replace('delete-', '');
     if (index > -1) {
+        // TODO: Du behöver skapa en variabel som heter cart, och som innehåller alla produkterna som finns i varukorgen
         cart.splice(index, 1);      
     } else {
         ducks[index].amount -= 1;
@@ -169,8 +171,6 @@ function printDucks() {
     plusBtns.forEach(btn => {
         btn.addEventListener('click', increaseAmount);
     });
-   
-    printCartDucks(); 
 
    
     
@@ -185,12 +185,12 @@ function printCartDucks() {
 
     let sum  = 0;
 //---------------------------------  Varukorg ------------------------------------------------
-    ducks.forEach(duck => {
+    ducks.forEach((duck, index) => {
         if (duck.amount > 0) {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
-                <div><button id="deleteIcon" class="material-symbols-outlined delete-cart">delete</button></div> 
+                <div><button id="delete-${index}" class="material-symbols-outlined delete-cart">delete</button></div> 
                 <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
                 height="40" loading="lazy"></div>
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
@@ -200,6 +200,12 @@ function printCartDucks() {
             `;
         }
     });
+    cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
+    <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
+    `;
+    cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
+    `;
+
     const removeBtns = document.querySelectorAll('.delete-cart'); 
     
     console.log(removeBtns);
@@ -207,13 +213,9 @@ function printCartDucks() {
         console.log(btn);
         btn.addEventListener('click', removeDuck);
     });
-    cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
-    <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
-    `;
-    cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
-    `;
 }
-    printDucks();
+
+printDucks();
 
 
 
