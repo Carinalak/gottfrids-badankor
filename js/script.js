@@ -121,6 +121,7 @@ function removeDuck(e) {
     if (index > -1) {
         ducks[index].amount = 0; // Set the amount to 0 to remove it from the cart
     }
+    
     printCartDucks();
 }
 // Skriver ut produkterna:
@@ -167,8 +168,6 @@ function printDucks() {
     plusBtns.forEach(btn => {
         btn.addEventListener('click', increaseAmount);
     });
-   
-    printCartDucks(); 
 
    
     
@@ -188,7 +187,7 @@ function printCartDucks() {
             sum += duck.amount * duck.price;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
-                <div><button id="delete-${index}" class="material-symbols-outlined delete-cart">delete</button></div>
+                <div><button id="deleteIcon" class="material-symbols-outlined delete-cart">delete</button></div> 
                 <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="40"
                 height="40" loading="lazy"></div>
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
@@ -212,7 +211,8 @@ function printCartDucks() {
         btn.addEventListener('click', removeDuck);
     });
 }
-    printDucks();
+
+printDucks();
 
 
 
