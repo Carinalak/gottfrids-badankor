@@ -16,7 +16,7 @@ const ducks = [
         price: 29,
         img:
             {
-                src: '/img/badring.jpg',
+                src: 'img/badring.jpg',
                 alt: 'Anka med badring', 
                 width: 280,
                 height: 280,
