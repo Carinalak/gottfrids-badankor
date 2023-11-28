@@ -59,7 +59,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/farmor.jpg',
+                src: 'farmor.jpg',
                 alt: 'Anka farmor',
                 width: 280,
                 height: 280,
