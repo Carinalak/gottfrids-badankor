@@ -212,18 +212,24 @@ input[type=number]{
 
 .cart-container {
     position: relative;
-    display: inline-block; /* Ensures the container only takes the width it needs */
+    //display: inline-block;
+
 }
 
 .cart-counter {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -6px;
+    right: 0px;
     background-color: sandybrown;
     color: white;
-    padding: 2px 5px;
-    border-radius: 10px;
-    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    
+    font-family:'Times New Roman', Times, serif;
+}
+.cart-icon {
+    transform: scale(1.1);
 }
 
   /* slut */
