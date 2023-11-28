@@ -208,5 +208,23 @@ input[type=number]{
     width: 120px;
     cursor: pointer;
   }
+
+
+.cart-container {
+    position: relative;
+    display: inline-block; /* Ensures the container only takes the width it needs */
+}
+
+.cart-counter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: sandybrown;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
   /* slut */
   

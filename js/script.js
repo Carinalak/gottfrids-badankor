@@ -99,9 +99,13 @@ const ducks = [
 ];
     
 
-function addToCart(e) {                                         /////// 1    addToCart - Function
+let totalItemsInCart = 0;
+
+function addToCart(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
+    totalItemsInCart += 1;
+    updateCartIcon();
     printDucks();
     printCartDucks();
 }
@@ -130,10 +134,22 @@ function removeDuck(e) {
     const index = e.currentTarget.id.replace('delete-', '');
     
     if (index > -1) {
+        totalItemsInCart -= ducks[index].amount;
         ducks[index].amount = 0; 
     }
+    updateCartIcon();
     printCartDucks();
 }
+
+function updateCartIcon() {
+    const cartIcon = document.getElementById('cartIcon');
+    if (totalItemsInCart > 0) {
+        cartIcon.innerHTML = `shopping_cart <span class="cart-counter">${totalItemsInCart}</span>`;
+    } else {
+        cartIcon.innerHTML = 'shopping_cart';
+    }
+}
+
 
 function getRatingStars(rating) {
     const starIcon = '<i class="fas fa-star"></i>';
@@ -229,59 +245,3 @@ function printCartDucks() {
 printDucks();
 
 
-
-
-
-
-
-
-
-
-
-
-    // Nedan nytt Thrash:
-  
-   /*
-    const duckRemove = Array.from(document.querySelectorAll('li button')); // detta gör om node-list till en array-list
-    duckRemove.forEach((item) => {       //för varje sak i listan
-        item.addEventListener('click', removeDuck);    // produkten tas bort när man klickar på den.
-    });
-
-    function removeDuck(e) {
-        const index = ducks.indexOf(e.target.dataset.name);
-        if (index > -1) {
-            ducks.splice(index, 1);
-            printCartDucks();
-        }
-    
-    }
-*/
-    // Ovan nytt Thrash
-
-
-
-
-
-
-
-
-// --------------------------------------- PAGE 2 ---------------------------------------------------
-
-
-
-
-/*
-document.querySelector('#list').innerHTML = '<ul><li>Test</li></ul>';
-
-//document.querySelector('#imageContainer').innerHTML = '<img src="img/affarskvinna.jpg" width="250" height="250">';
-
-
-
-
-document.querySelector('#imageContainer2').innerHTML = '<img src="img/badring.jpg" width="250" height="250" alt="Anka med badring">';
-
-const ducks = ['Anka med badring', 'Affärskvinna', 'Snorklare', 'Dark Duck', 'Examen', 'Drottning'];
-console.log(ducks.length);
-
-const duckSorts = document.querySelector('#duckList');
-*/

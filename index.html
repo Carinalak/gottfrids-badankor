@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> <!--Shopping cart-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
     
     <title>Gottfrids badankor</title>
 </head>
@@ -23,9 +23,14 @@
       </button>
     <h1>Gottfrids badankor</h1>
     <div id="cartMenu" class="cart-menu"></div>
-    <a href="#cart"><button id="cartIcon" class="material-symbols-outlined cart-icon">
-      shopping_cart
-      </button>  </a>
+    <div id="cartContainer" class="cart-container"> <!-- New container for cart icon -->
+      
+      <a href="#cart">
+          <button id="cartIcon" class="material-symbols-outlined cart-icon">
+              shopping_cart
+          </button>
+      </a>
+  </div>
   </nav>
  </header>  
  <main>
@@ -60,7 +65,7 @@
 <!------------------------------------ PAGE 2 - shopping-cart ----------------------------------->
   <article class="shopping-cart">
 
-    <h2>Varukorg</h2>
+    <a name="shoppingcart"><h2>Varukorg</h2></a>
     <div id="cart"></div>
     
 
