@@ -16,7 +16,7 @@ const ducks = [
         price: 29,
         img:
             {
-                src: 'img/badring.jpg',
+                src: '/img/badring.jpg',
                 alt: 'Anka med badring', 
                 width: 280,
                 height: 280,
@@ -31,7 +31,7 @@ const ducks = [
         price: 39,
         img:
             {
-                src: '/img/affarskvinna.jpg',
+                src: '../img/affarskvinna.jpg',
                 alt: 'Anka affärskvinna',
                 width: 280,
                 height: 280,
@@ -141,13 +141,14 @@ function printDucks() {
             <div class="rating">Betyg: <span>${duck.rating}</span> </div> 
             <div class="plus-minus">
                 <button class="minus" data-id="${index}"> - </button>
-                <input class="amount-between" type="number" value="${duck.amount}" id="amount">
+                <div class="amount-between"> <span> ${duck.amount} </span></div>
                 <button class="plus" data-id="${index}"> + </button>
                 <button class="add-to-cart"> Lägg i varukorgen </button>
             </div>
         </article>
         `;
     });
+
     const minusBtns = document.querySelectorAll('button.minus');
     const plusBtns = document.querySelectorAll('button.plus');
 

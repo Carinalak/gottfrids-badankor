@@ -65,18 +65,28 @@ h2 {
 }
 .amount-between {
     display: flex;
-    margin-left: 5px;
-    margin-right: 5px;
     align-items: center;
     justify-content: center; 
+    width: 20px;
+    height: 20px;
+    border: none;
+    text-align: center;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
 }
 .img-price-amount-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: 2px;
-        padding-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 2px;
+            padding-bottom: 15px;
 }
 .price {
     font-weight: bold;
