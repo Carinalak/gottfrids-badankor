@@ -4,7 +4,7 @@ body {
 }
 h2 {
     text-align: center;
-    padding: 30px;
+    padding-top: 50px;
 }
 
 .void-left {
@@ -44,6 +44,7 @@ h2 {
    border: 0;
    height: 20px;
    width: 20px;
+   cursor: pointer;
    
 }
 .plus {
@@ -53,6 +54,7 @@ h2 {
     border: 0;
     height: 20px;
     width: 20px; 
+    cursor: pointer;
 }
 .add-to-cart {
     background-color: sandybrown;
@@ -73,6 +75,10 @@ h2 {
     border: none;
     text-align: center;
 }
+.material-symbols-outlined {
+    cursor: pointer;
+}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -97,6 +103,7 @@ input[type=number]{
 .rating {
     margin-bottom: 10px;
 }
+
 .cart {
     display: flex;
     flex-direction: row;
@@ -128,6 +135,7 @@ input[type=number]{
     padding: 7px;
     border-radius: 8px;
     width: 100px;
+    cursor: pointer;
 }
 .customer-form {
     display: grid;
@@ -187,6 +195,7 @@ input[type=number]{
     padding: 7px;
     border-radius: 8px;
     width: 120px;
+    cursor: pointer;
   }
   .go-to-pay {
     background-color: sandybrown;
@@ -196,7 +205,8 @@ input[type=number]{
     margin-left: 18px;
     padding: 7px;
     border-radius: 8px;
-    width: 120 px;
+    width: 120px;
+    cursor: pointer;
   }
   /* slut */
   

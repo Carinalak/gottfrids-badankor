@@ -97,7 +97,7 @@ const ducks = [
         category: 'boy-ducks',
     }, 
 ];
-
+    
 
 function addToCart(e) {                                         /////// 1    addToCart - Function
     const index = e.currentTarget.dataset.id;
@@ -135,6 +135,16 @@ function removeDuck(e) {
     printCartDucks();
 }
 
+function getRatingStars(rating) {
+    const starIcon = '<i class="fas fa-star"></i>';
+    const emptyStarIcon = '<i class="far fa-star"></i>';
+
+    const fullStars = starIcon.repeat(rating);
+    const emptyStars = emptyStarIcon.repeat(5 - rating);
+
+    return fullStars + emptyStars;
+}
+
 // Skriver ut produkterna:
 function printDucks() {
     duckHtmlContainer.innerHTML = '';
@@ -148,10 +158,9 @@ function printDucks() {
                 height="${duck.img.height}" loading="lazy">
             </div>
             <h3>${duck.name}</h3> 
-            <div class="price"><span>${duck.price}</span> kr</div>
-            <div class="rating">Betyg: <span>${duck.rating}</span> </div> 
+                <div class="price"><span>${duck.price}</span> kr</div>
+                <div class="rating">${getRatingStars(duck.rating)}</div>
             <div>
-               
                 <button class="add-to-cart" data-id="${index}"> Lägg i varukorgen </button>
             </div>
         </article>
@@ -161,13 +170,7 @@ function printDucks() {
     const plusBtns = document.querySelectorAll('button.plus');           /////// 2 plusBtns - Variabel - QuerySelector - plus
     const addToCartBtns = document.querySelectorAll('button.add-to-cart');       /////// 2 addToCart - variabel - QuerySelector - add
 
-//Nedan nytt:
-    //const addToCartBtns = document.querySelectorAll('button.add-to-cart');
 
-    //function 
-   
-    
-// Ovan NYTT
     minusBtns.forEach(btn => {
     btn.addEventListener('click', decreaseAmount);});
     plusBtns.forEach(btn => {
@@ -176,9 +179,8 @@ function printDucks() {
     addToCartBtns.forEach(btn => {                                     /////// 3 addToCartBtns - EventListener
         btn.addEventListener('click', addToCart);
         });
-        
-    
 }
+
 
 // Ducks som man har beställt fler än 0 av: //---------------------------------  Varukorg ------------------------------------------------
 function printCartDucks() {
