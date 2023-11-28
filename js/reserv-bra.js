@@ -16,7 +16,7 @@ const ducks = [
         price: 29,
         img:
             {
-                src: '/img/badring.jpg',
+                src: 'img/badring.jpg',
                 alt: 'Anka med badring', 
                 width: 280,
                 height: 280,
@@ -31,7 +31,7 @@ const ducks = [
         price: 39,
         img:
             {
-                src: '../img/affarskvinna.jpg',
+                src: '/img/affarskvinna.jpg',
                 alt: 'Anka affärskvinna',
                 width: 280,
                 height: 280,
@@ -59,7 +59,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/farmor.jpg',
+                src: 'img/farmor.jpg',
                 alt: 'Anka farmor',
                 width: 280,
                 height: 280,
@@ -106,14 +106,23 @@ function decreaseAmount(e) {
         ducks[index].amount -= 1;
     }
     printDucks();
-    printCartDucks();
+    //printCartDucks();
 }
-function increaseAmount(e) {
+function increaseAmount(e) {                                           //////// 1 increase Amount-  Function
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
-    printDucks();
+   printDucks();
+ // printCartDucks(); 
+}
+function addToCart(e) {                                         /////// 1    addToCart - Function
+    const index = e.currentTarget.dataset.id;
+    ducks[index].amount += 1;
+    //printDucks();
     printCartDucks();
 }
+
+
+
 // Tar bort från varukorgen:
 function removeDuck(e) {
     const index = e.currentTarget.id.replace('delete-', '');
@@ -141,16 +150,16 @@ function printDucks() {
             <div class="rating">Betyg: <span>${duck.rating}</span> </div> 
             <div class="plus-minus">
                 <button class="minus" data-id="${index}"> - </button>
-                <div class="amount-between"> <span> ${duck.amount} </span></div>
+                <input class="amount-between" type="number" value="${duck.amount}" id="amount">
                 <button class="plus" data-id="${index}"> + </button>
-                <button class="add-to-cart"> Lägg i varukorgen </button>
+                <button class="add-to-cart" data-id="${index}"> Lägg i varukorgen </button>
             </div>
         </article>
         `;
     });
-
     const minusBtns = document.querySelectorAll('button.minus');
-    const plusBtns = document.querySelectorAll('button.plus');
+    const plusBtns = document.querySelectorAll('button.plus');           /////// 2 plusBtns - Variabel - QuerySelector - plus
+    const addToCartBtns = document.querySelectorAll('button.add-to-cart');       /////// 2 addToCart - variabel - QuerySelector - add
 
 //Nedan nytt:
     //const addToCartBtns = document.querySelectorAll('button.add-to-cart');
@@ -160,11 +169,14 @@ function printDucks() {
     
 // Ovan NYTT
     minusBtns.forEach(btn => {
-        btn.addEventListener('click', decreaseAmount);
-    });
-    plusBtns.forEach(btn => {
-        btn.addEventListener('click', increaseAmount);
-    });
+        btn.addEventListener('click', decreaseAmount);});
+        plusBtns.forEach(btn => {
+            btn.addEventListener('click', increaseAmount);                  /////// 3 plusBtns - EventListener - IncreaseAmount
+        });
+        addToCartBtns.forEach(btn => {                                     /////// 3 addToCartBtns - EventListener
+            btn.addEventListener('click', addToCart);
+        });
+        
     
 }
 
