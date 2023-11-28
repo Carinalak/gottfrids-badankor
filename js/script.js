@@ -98,28 +98,30 @@ const ducks = [
     }, 
 ];
 
-function decreaseAmount(e) {
+
+function addToCart(e) {                                         /////// 1    addToCart - Function
     const index = e.currentTarget.dataset.id;
+    ducks[index].amount += 1;
+    printDucks();
+    printCartDucks();
+}
+function decreaseAmount(e) {
+    const index = e.currentTarget.dataset.id;                   ///// decrease amount   - Function
     if(ducks[index].amount <= 0) {
         ducks[index].amount = 0;
     } else {
         ducks[index].amount -= 1;
     }
-    printDucks();
-    //printCartDucks();
+    //printDucks();
+    printCartDucks();
 }
 function increaseAmount(e) {                                           //////// 1 increase Amount-  Function
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
-   printDucks();
- // printCartDucks(); 
+   //printDucks();
+  printCartDucks(); 
 }
-function addToCart(e) {                                         /////// 1    addToCart - Function
-    const index = e.currentTarget.dataset.id;
-    ducks[index].amount += 1;
-    //printDucks();
-    printCartDucks();
-}
+
 
 
 
@@ -148,16 +150,14 @@ function printDucks() {
             <h3>${duck.name}</h3> 
             <div class="price"><span>${duck.price}</span> kr</div>
             <div class="rating">Betyg: <span>${duck.rating}</span> </div> 
-            <div class="plus-minus">
-                <button class="minus" data-id="${index}"> - </button>
-                <input class="amount-between" type="number" value="${duck.amount}" id="amount">
-                <button class="plus" data-id="${index}"> + </button>
+            <div>
+               
                 <button class="add-to-cart" data-id="${index}"> Lägg i varukorgen </button>
             </div>
         </article>
         `;
     });
-    const minusBtns = document.querySelectorAll('button.minus');
+    const minusBtns = document.querySelectorAll('button.minus');          /////// 2 minusBtns - Variabel - QuerySelector - minus   
     const plusBtns = document.querySelectorAll('button.plus');           /////// 2 plusBtns - Variabel - QuerySelector - plus
     const addToCartBtns = document.querySelectorAll('button.add-to-cart');       /////// 2 addToCart - variabel - QuerySelector - add
 
@@ -169,12 +169,12 @@ function printDucks() {
     
 // Ovan NYTT
     minusBtns.forEach(btn => {
-        btn.addEventListener('click', decreaseAmount);});
-        plusBtns.forEach(btn => {
-            btn.addEventListener('click', increaseAmount);                  /////// 3 plusBtns - EventListener - IncreaseAmount
-        });
-        addToCartBtns.forEach(btn => {                                     /////// 3 addToCartBtns - EventListener
-            btn.addEventListener('click', addToCart);
+    btn.addEventListener('click', decreaseAmount);});
+    plusBtns.forEach(btn => {
+        btn.addEventListener('click', increaseAmount);                  /////// 3 plusBtns - EventListener - IncreaseAmount
+    });
+    addToCartBtns.forEach(btn => {                                     /////// 3 addToCartBtns - EventListener
+        btn.addEventListener('click', addToCart);
         });
         
     
@@ -195,6 +195,11 @@ function printCartDucks() {
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
                 <div class="cart-text"><span>${duck.amount * duck.price} kr</span></div>
                 </div>
+                <div class="plus-minus">
+                <button class="minus" data-id="${index}"> - </button>
+                <input class="amount-between" type="number" value="${duck.amount}" id="amount">
+                <button class="plus" data-id="${index}"> + </button>
+            </div>
             </article>
             `;
         }
