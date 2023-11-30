@@ -20,15 +20,7 @@ h2 {
     flex-direction: column;
     align-items: center;
 }
-.items-page {
 
-}
-.shoppig-cart {
-   
-}
-.customer-data {
-    
-}
 .number-box {
     width: 30px;
 }
@@ -137,7 +129,9 @@ input[type=number]{
     width: 100px;
     cursor: pointer;
 }
-.customer-form {
+
+
+.customer-form {         
     display: grid;
     gap: 10px;
     row-gap: 20px;
@@ -146,57 +140,89 @@ input[type=number]{
     font-size: 1rem;
 }
 
-/* börjar*/
-.booking-form {
-    display: grid;
-    gap: 10px;
-    margin-left: 16px;
-    width: 250px;
-    font-size: 1rem;
-  }
-  .customer {
-    position: relative;
-  }
-  .book-1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    position: relative;
-    left: 0px;
+////////////   Payment form                   ////////////////////////////////////////////////////////////////////////////
+
+.payment-options {
+   width: 240px;
+   border: 1px solid black;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   position: relative;
+   padding: 20px;
+   padding-bottom: 30px;
+   background-color: #dad5d1;
+}
+
+
+.selector {
+    padding: 5px;
+    align-self: self-end;
     
-  }
-  .book-2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    width: 150px;
-    height: 15px;
-    position: absolute;
-    right: 0px;
-    border-radius: 5px;
-    font-size: 1rem;
-  }
-  .form-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: stretch;
-    gap: 1px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  .cancel-button {
+}
+.invoice {
+    padding: 5px;
+    align-self: self-end;
+}
+.card {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   position: relative;
+}
+.card-info {
+    padding: 5px;
+    align-self: self-end;
+}
+.card-cvc {
+    padding: 5px;
+    align-self: self-end;
+}
+.order-btn {
     background-color: sandybrown;
     color: #ffffff;
     font-weight: bold;
     border: 0;
     margin-left: 18px;
-    padding: 7px;
+    padding: 5px;
     border-radius: 8px;
-    width: 120px;
+    width: 50px;
     cursor: pointer;
-  }
+    position: absolute;
+    left: 0;
+    bottom: 6px;
+}
+.personal-id-text {
+    padding-left: 25px;
+    position: absolute;
+    left: 0;
+}
+.hidden {
+    display: none;
+}  
+    
+.card-number-text {          
+    padding-left: 5px;
+    position: absolute;
+    left: 0;
+    
+}
+.card-date-text {                    
+    padding-left: 5px;
+    position: absolute;
+    left: 0;
+}
+.cvc-text {
+    padding-left: 5px;
+    position: absolute;
+    left: 0;
+}
+
+.small {
+    width: 20px;
+}
+
+
   .go-to-pay {
     background-color: sandybrown;
     color: #ffffff;

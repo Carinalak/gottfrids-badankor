@@ -45,7 +45,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/farfar.jpg',
+                src: './img/farfar.jpg',
                 alt: 'Anka farfar',
                 width: 280,
                 height: 280,
@@ -59,7 +59,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: 'img/farmor.jpg',
+                src: '../img/farmor.jpg',
                 alt: 'Anka farmor',
                 width: 280,
                 height: 280,
@@ -109,25 +109,36 @@ function addToCart(e) {
     printDucks();
     printCartDucks();
 }
-function decreaseAmount(e) {
-    const index = e.currentTarget.dataset.id;                   ///// decrease amount   - Function
-    if(ducks[index].amount <= 0) {
-        ducks[index].amount = 0;
-    } else {
-        ducks[index].amount -= 1;
-    }
-    //printDucks();
-    printCartDucks();
-}
-function increaseAmount(e) {                                           //////// 1 increase Amount-  Function
+
+function increaseAmount(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
-   //printDucks();
-  printCartDucks(); 
+    totalItemsInCart += 1;
+    updateCartIcon();
+    printCartDucks();
+
 }
-
-
-
+/*
+function decreaseAmount(e) {
+    const index = e.currentTarget.dataset.id;
+    if (ducks[index].amount > 0) {
+        ducks[index].amount -= 1;
+        totalItemsInCart -= 1;
+        updateCartIcon();
+        printCartDucks();
+        
+    }
+}*/
+function decreaseAmount(e) {
+    const index = e.currentTarget.dataset.id.splice;
+    if (index > -1) {
+        totalItemsInCart -= ducks[index].amount;
+        totalItemsInCart -= 1;
+        updateCartIcon();
+        printCartDucks();
+        
+    }
+}
 
 // Tar bort från varukorgen:
 function removeDuck(e) {
@@ -198,7 +209,7 @@ function printDucks() {
 }
 
 
-// Ducks som man har beställt fler än 0 av: //---------------------------------  Varukorg ------------------------------------------------
+// Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
 function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
     let sum  = 0;
@@ -212,7 +223,6 @@ function printCartDucks() {
                 height="40" loading="lazy"></div>
                 <div><span>${duck.name} </span> <span>: ${duck.amount} x ${duck.price} kr</span></div>
                 <div class="cart-text"><span>${duck.amount * duck.price} kr</span></div>
-                </div>
                 <div class="plus-minus">
                 <button class="minus" data-id="${index}"> - </button>
                 <input class="amount-between" type="number" value="${duck.amount}" id="amount">
@@ -221,6 +231,7 @@ function printCartDucks() {
             </article>
             `;
         }
+        
     });
     
     cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
@@ -241,7 +252,33 @@ function printCartDucks() {
         btn.addEventListener('click', removeDuck);
     });
 }
-
 printDucks();
+
+// -------------------------- Card payment checkout ----------------------- //
+
+const cardInvoiceRadios = Array.from(document.querySelectorAll('input[name="payment-option"]'));
+cardInvoiceRadios.forEach(radioBtn => {
+    radioBtn.addEventListener('change', switchPaymentMethod);
+});
+
+const invoiceOption = document.querySelector('#invoice');
+const cardOption = document.querySelector('#card');
+function switchPaymentMethod(e) {
+    invoiceOption.classList.toggle('hidden');
+    cardOption.classList.toggle('hidden');
+
+    switch(e.target.value) {
+        case 'invoice':
+            
+            break;
+            case 'card':
+                
+                break;
+                default:
+                    console.error('Unknown option for payment type.');
+                    break;
+    }
+}
+
 
 

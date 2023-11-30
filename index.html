@@ -79,58 +79,50 @@
 
 
 
-
-
-
-
-
   </article>
   <!------------------------------------ PAGE 3 - customer-data ----------------------------------->
   <article class="customer-data">
 
+
+    <div><a name="checkout"><h2>Kassan - fyll i dina uppgifter</h2></a></div>
+
+
+    <div class="payment-options">
+
+      <div class="selector">
+        <input type="radio" name="payment-option" checked value="invoice">      <!--Faktura INPUT-->
+        <span>Faktura</span>                                            <!--Faktura Text-->
     
-      <div><a name="checkout"><h2>Kassan - fyll i dina uppgifter</h2></a></div>
-      <form class="customer-form">
-        <label class="customer">
-          <span class="book-1">Namn</span>
-          <input class="book-2" type="text" name="name" placeholder="Namn">
+        <input type="radio" name="payment-option" value="card">         <!--Kort INPUT-->
+        <span>Kort</span>                                               <!--Kort Text-->
+      </div>
+    
+      <div class="invoice" id="invoice">
+        <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
+        <input type="number" name="personal-id">                          <!--Personnummer INPUT-->
+      </div>
+    
+      <div class="card hidden" id="card">
+        <label class="card-info">
+          <span class="card-number-text">Kortnummer</span>                                             <!--Kortnummer Text-->
+          <input type="number" name="personal-id">                            <!--Kortnummer INPUT-->
         </label>
-        <label class="customer">
-          <span class="book-1">Efternamn</span>
-          <input class="book-2" type="text" name="name" placeholder="Efternamn">
+        <label class="card-info">
+          <span class="card-date-text">Datum</span>
+          <input type="number" class="small" placeholder="YY"> / <input type="number" class="small" placeholder="MM">
         </label>
-        <label class="customer">
-          <span class="book-1">Adress (Gata)</span>
-          <input class="book-2" type="text" name="name" placeholder="Adress (gata)">
+        <label class="card-cvc">
+          <span class="cvc-text">CVC</span>
+          <input type="number" class="small" placeholder="123">
         </label>
-        <label class="customer">
-          <span class="book-1">Postnummer</span>
-          <input class="book-2" type="text" name="name" placeholder="Postnummer">
-        </label>
-        <label class="customer">
-          <span class="book-1">Stad</span>
-          <input class="book-2" type="text" name="name" placeholder="Stad">
-        </label>
-        <label class="customer">
-          <span class="book-1">Email</span>
-          <input class="book-2" type="email" name="email" placeholder="name@name.com">
-        </label>
-        <label class="customer">
-          <span class="book-1">Mobil</span>
-          <input class="book-2" type="tel" name="phone" placeholder="+467" >
-        </label>
-      <div class="form-buttons">
-        <label>
-          <input class="cancel-button" type="reset" value="Rensa">
-        </label>
-        <label >
-          <input class="go-to-pay" type="submit" value="Betala">
-      </label>
-  </div>
-    </form>
-
-
-
+      </div>
+      <button class="order-btn" id="order" disabled>Beställ</button>
+    
+    </div>
+    
+    
+    
+    
 
 
 
