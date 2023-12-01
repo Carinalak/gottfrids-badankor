@@ -90,7 +90,7 @@
     <div class="payment-options">
 
       <div class="selector">
-        <input type="radio" name="payment-option" checked value="invoice">      <!--Faktura INPUT-->
+        <input  type="radio" name="payment-option" value="invoice" checked>      <!--Faktura INPUT-->
         <span>Faktura</span>                                            <!--Faktura Text-->
     
         <input type="radio" name="payment-option" value="card">         <!--Kort INPUT-->
@@ -99,7 +99,7 @@
     
       <div class="invoice" id="invoice">
         <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
-        <input type="number" name="personal-id">                          <!--Personnummer INPUT-->
+        <input type="text" name="personal-id" id="personalId">                          <!--Personnummer INPUT-->
       </div>
     
       <div class="card hidden" id="card">
@@ -116,7 +116,7 @@
           <input type="number" class="small" placeholder="123">
         </label>
       </div>
-      <button class="order-btn" id="order" disabled>Beställ</button>
+      <button type="button" class="order-btn" id="orderBtn" disabled>Beställ</button>
     
     </div>
     

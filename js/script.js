@@ -263,22 +263,36 @@ cardInvoiceRadios.forEach(radioBtn => {
 
 const invoiceOption = document.querySelector('#invoice');
 const cardOption = document.querySelector('#card');
+let selectedPaymentOption = 'invoice';
+
+ // switches between invoice and card payment method. Toggles their visibility.
 function switchPaymentMethod(e) {
     invoiceOption.classList.toggle('hidden');
     cardOption.classList.toggle('hidden');
 
-    switch(e.target.value) {
-        case 'invoice':
-            
-            break;
-            case 'card':
-                
-                break;
-                default:
-                    console.error('Unknown option for payment type.');
-                    break;
-    }
+    selectedPaymentOption = e.target.value;
 }
 
+const personalId = document.querySelector('#personalId');
+//personalId.addEventListener('change', checkPersonalIdNumber);
+personalId.addEventListener('change', activateOrderButton);
 
+const personalIdRegEx = new RegExp(/^(\d{10}|\d{12}|\d{6}-\d{4}|\d{8}-\d{4}|\d{8} \d{4}|\d{6} \d{4})/);
+
+function isPersonalIdNumberValid() {
+    return personalIdRegEx.exec(personalId.value);
+}
+
+const orderBtn = document.querySelector('#orderBtn');   
+
+function activateOrderButton() {
+    if (selectedPaymentOption === 'invoice' && isPersonalIdNumberValid()) {
+        //orderBtn.removeAttribute('disabled');
+        orderBtn.removeAttribute('disabled');
+    }   else if(selectedPaymentOption === 'invoice' && !isPersonalIdNumberValid()) {
+        orderBtn.setAttribute('disabled', '');
+        //orderBtn.setAttribute('disabled', '');
+    }
+
+}
 
