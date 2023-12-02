@@ -254,16 +254,39 @@ function printCartDucks() {
 }
 printDucks();
 
-// -------------------------- Card payment checkout ----------------------- //
 
+
+// -------------------------- Card payment checkout ----------------------- //
 const cardInvoiceRadios = Array.from(document.querySelectorAll('input[name="payment-option"]'));
+const inputs = [
+    document.querySelector('#creditCardNumber'),
+    document.querySelector('#creditCardYear'),
+    document.querySelector('#creditCardMonth'),
+    document.querySelector('#creditCardCvc'),
+    document.querySelector('#personalId')
+];
+
+const invoiceOption = document.querySelector('#invoice');
+const cardOption = document.querySelector('#card');
+const orderBtn = document.querySelector('#orderBtn');  
+
+// Default options
+let selectedPaymentOption = 'invoice';
+
+ 
+// REG EX:
+const personalIdRegEx = new RegExp(/^(\d{10}|\d{12}|\d{6}-\d{4}|\d{8}-\d{4}|\d{8} \d{4}|\d{6} \d{4})/);
+const creditCardNumberRegEx = new RegExp(/^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$/); //MasterCard
+
+// Add EventListeners:
+inputs.forEach(input => {
+    input.addEventListener('focusout', activateOrderButton);
+    input.addEventListener('change', activateOrderButton);
+});
 cardInvoiceRadios.forEach(radioBtn => {
     radioBtn.addEventListener('change', switchPaymentMethod);
 });
 
-const invoiceOption = document.querySelector('#invoice');
-const cardOption = document.querySelector('#card');
-let selectedPaymentOption = 'invoice';
 
  // switches between invoice and card payment method. Toggles their visibility.
 function switchPaymentMethod(e) {
@@ -273,26 +296,52 @@ function switchPaymentMethod(e) {
     selectedPaymentOption = e.target.value;
 }
 
-const personalId = document.querySelector('#personalId');
-//personalId.addEventListener('change', checkPersonalIdNumber);
-personalId.addEventListener('change', activateOrderButton);
 
-const personalIdRegEx = new RegExp(/^(\d{10}|\d{12}|\d{6}-\d{4}|\d{8}-\d{4}|\d{8} \d{4}|\d{6} \d{4})/);
 
-function isPersonalIdNumberValid() {
+function isPersonalIdNumberValid() {                    //////
     return personalIdRegEx.exec(personalId.value);
 }
 
-const orderBtn = document.querySelector('#orderBtn');   
 
-function activateOrderButton() {
+
+
+
+function activateOrderButton() {                                                        //////
+    orderBtn.setAttribute('disabled', '');
+    
     if (selectedPaymentOption === 'invoice' && isPersonalIdNumberValid()) {
-        //orderBtn.removeAttribute('disabled');
         orderBtn.removeAttribute('disabled');
-    }   else if(selectedPaymentOption === 'invoice' && !isPersonalIdNumberValid()) {
-        orderBtn.setAttribute('disabled', '');
+    }   else if (selectedPaymentOption === 'invoice' && !isPersonalIdNumberValid()) {
         //orderBtn.setAttribute('disabled', '');
-    }
+        return;
+    }   else if (selectedPaymentOption === 'card') {
+        // check card number
+        if (creditCardNumberRegEx.exec(creditCardNumber.value) === null) {
+            console.warn ('Credit card number not valid.');
+          return;
+        }
+        let year = Number(creditCardYear.value);
+        
+        const today = new Date();
+        const shortYear = Number(String(today.getFullYear()).substring(2));
+        console.log(shortYear);
+        if (year > shortYear + 2  || year < shortYear) {
+            console.warn('Credit card month not valid.');
+            return;
+            }
+            console.log(creditCardCvc.value);
+            if (creditCardCvc.value.lenght !== 3) {
+                console.warn('CVC not valid.');
 
+            }
+        }
+    
+    orderBtn.removeAttribute('disabled');
 }
+
+
+
+
+
+
 

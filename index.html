@@ -87,36 +87,87 @@
     <div><a name="checkout"><h2>Kassan - fyll i dina uppgifter</h2></a></div>
 
 
-    <div class="payment-options">
 
+    <form class="name-address-form">
+      
+        <label class="card-info">
+          <span class="personal-id-text">Förnamn</span>
+          <input type="text" name="name" placeholder="Förnamn">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Efternamn</span>
+          <input type="text" name="name" placeholder="Efternamn">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Adress, gata</span>
+          <input type="text" name="address" placeholder="Adress, gata">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Postnummer</span>
+          <input type="number" name="zip-code" class="small" placeholder="123">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Portkod (om det finns)</span>
+          <input type="number" name="door-code" class="small" placeholder="1234">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Stad</span>
+          <input type="text" name="city" placeholder="Stad">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Telefon (Mobil)</span>
+          <input type="tel" name="phone" placeholder="+467" >
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">E-post</span>
+          <input type="email" name="email" placeholder="name@name.com">
+        </label>
+        <label class="card-info">
+          <span class="personal-id-text">Rabattkod</span>
+          <input type="number" name="rabattkod" placeholder="Rabattkod">
+        </label>
+
+      <div class="form-buttons">
+        <label>
+          <input class="cancel-button" type="reset" value="Rensa">
+        </label>
+        <label>
+          <input class="request-button" type="submit" value="Gå vidare">
+      </label>
+  </div>
+    </form>
+
+
+
+    <div class="payment-options">                                         <!-- Payment - options  -->
       <div class="selector">
-        <input  type="radio" name="payment-option" value="invoice" checked>      <!--Faktura INPUT-->
+        <input  type="radio" name="payment-option" value="invoice">      <!--Faktura INPUT-->
         <span>Faktura</span>                                            <!--Faktura Text-->
     
-        <input type="radio" name="payment-option" value="card">         <!--Kort INPUT-->
-        <span>Kort</span>                                               <!--Kort Text-->
+        <input type="radio" name="payment-option" value="2222405343248877" checked>         <!--Kort INPUT-->
+        <span>Kort</span>                                                                   <!--Kort Text-->
       </div>
     
-      <div class="invoice" id="invoice">
+      <div class="invoice hidden" id="invoice">
         <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
-        <input type="text" name="personal-id" id="personalId">                          <!--Personnummer INPUT-->
+        <input type="text" name="personal-id" id="personalId" value="19720404-1234">               <!--Personnummer INPUT-->
       </div>
     
-      <div class="card hidden" id="card">
+      <div class="card" id="card">
         <label class="card-info">
           <span class="card-number-text">Kortnummer</span>                                             <!--Kortnummer Text-->
-          <input type="number" name="personal-id">                            <!--Kortnummer INPUT-->
+          <input type="number" id="creditCardNumber" value="5555500830030331">                            <!--Kortnummer INPUT-->
         </label>
         <label class="card-info">
           <span class="card-date-text">Datum</span>
-          <input type="number" class="small" placeholder="YY"> / <input type="number" class="small" placeholder="MM">
+          <input type="number" class="small" placeholder="YY" id="creditCardYear"> / <input type="number" class="small" placeholder="MM" id="creditCardMonth">
         </label>
         <label class="card-cvc">
           <span class="cvc-text">CVC</span>
-          <input type="number" class="small" placeholder="123">
+          <input type="number" class="small" placeholder="123" id="creditCardCvc">
         </label>
       </div>
-      <button type="button" class="order-btn" id="orderBtn" disabled>Beställ</button>
+      <button class="order-btn" id="orderBtn" disabled>Beställ</button>
     
     </div>
     

@@ -139,12 +139,30 @@ input[type=number]{
     width: 250px;
     font-size: 1rem;
 }
+////////////   Name and address form                   ////////////////////////////////////////////////////////////////////////////
+.name-address-form {
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 20px;
+    padding-bottom: 30px;
+    background-color: #dad5d1;
+ }
+
+
+
+
 
 ////////////   Payment form                   ////////////////////////////////////////////////////////////////////////////
 
 .payment-options {
    width: 300px;
    border: 1px solid black;
+   border-radius: 5px;
    display: flex;
    flex-direction: column;
    justify-content: space-between;
@@ -192,6 +210,13 @@ input[type=number]{
     left: 0;
     bottom: 6px;
 }
+.order-btn:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
 .personal-id-text {
     padding-left: 25px;
     position: absolute;
