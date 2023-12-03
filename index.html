@@ -127,49 +127,50 @@
           <input type="number" name="rabattkod" placeholder="Rabattkod">
         </label>
 
-      <div class="form-buttons">
+     <!-- <div class="form-buttons">
         <label>
           <input class="cancel-button" type="reset" value="Rensa">
         </label>
         <label>
           <input class="request-button" type="submit" value="Gå vidare">
       </label>
-  </div>
+  </div>-->
     </form>
 
-
-
-    <div class="payment-options">                                         <!-- Payment - options  -->
-      <div class="selector">
-        <input  type="radio" name="payment-option" value="invoice">      <!--Faktura INPUT-->
-        <span>Faktura</span>                                            <!--Faktura Text-->
-    
-        <input type="radio" name="payment-option" value="2222405343248877" checked>         <!--Kort INPUT-->
-        <span>Kort</span>                                                                   <!--Kort Text-->
+    <form>
+      <div class="payment-options">                                         <!-- Payment - options  -->
+        <div class="selector">
+          <input  type="radio" name="payment-option" value="invoice">      <!--Faktura INPUT-->
+          <span>Faktura</span>                                            <!--Faktura Text-->
+      
+          <input type="radio" name="payment-option" value="2222405343248877" checked>         <!--Kort INPUT-->
+          <span>Kort</span>                                                                   <!--Kort Text-->
+        </div>
+      
+        <div class="invoice hidden" id="invoice">
+          <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
+          <input type="text" name="personal-id" id="personalId" value="19720404-1234">               <!--Personnummer INPUT-->
+        </div>
+      
+        <div class="card" id="card">
+          <label class="card-info">
+            <span class="card-number-text">Kortnummer</span>                                             <!--Kortnummer Text-->
+            <input type="number" id="creditCardNumber" value="5555500830030331">                            <!--Kortnummer INPUT-->
+          </label>
+          <label class="card-info">
+            <span class="card-date-text">Datum</span>
+            <input type="number" class="small" placeholder="YY" id="creditCardYear"> / <input type="number" class="small" placeholder="MM" id="creditCardMonth">
+          </label>
+          <label class="card-cvc">
+            <span class="cvc-text">CVC</span>
+            <input type="number" class="small" placeholder="123" id="creditCardCvc">
+          </label>
+        </div>
+        <button class="order-btn" id="orderBtn" disabled>Beställ</button>
+        <button class="cancel-btn" type="reset" id="cancelBtn">Rensa</button>
+      
       </div>
-    
-      <div class="invoice hidden" id="invoice">
-        <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
-        <input type="text" name="personal-id" id="personalId" value="19720404-1234">               <!--Personnummer INPUT-->
-      </div>
-    
-      <div class="card" id="card">
-        <label class="card-info">
-          <span class="card-number-text">Kortnummer</span>                                             <!--Kortnummer Text-->
-          <input type="number" id="creditCardNumber" value="5555500830030331">                            <!--Kortnummer INPUT-->
-        </label>
-        <label class="card-info">
-          <span class="card-date-text">Datum</span>
-          <input type="number" class="small" placeholder="YY" id="creditCardYear"> / <input type="number" class="small" placeholder="MM" id="creditCardMonth">
-        </label>
-        <label class="card-cvc">
-          <span class="cvc-text">CVC</span>
-          <input type="number" class="small" placeholder="123" id="creditCardCvc">
-        </label>
-      </div>
-      <button class="order-btn" id="orderBtn" disabled>Beställ</button>
-    
-    </div>
+  </form>
     
     
     

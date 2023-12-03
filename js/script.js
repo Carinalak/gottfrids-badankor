@@ -3,6 +3,16 @@
 2. Sida 1: "items-page". En plus och minusknapp, antal, pris, bild.
 3. Sida 2: "shopping-cart". Behöver Trashbin.
 4. Sida 3: "customer-data". Formulär till kundens uppgifter.
+5. Kvar att göra: Sortera produkter utifrån namn, pris, kategori och rating.
+6. Lägg till fler munkar.
+7. Rabatterna!!!
+8. Lägg till fält för rabatter.
+9. checkbox för godkännande av behandling av personuppgifter.
+checkbox för beställning av nyhetsbrev,ska vara iklickad som default.
+rensa-kanpp.
+9. Skriv mer i Readme-filen.
+10. Validera.
+11. Publicera online.
 */
 // duckContainer
 // -------------------------------------  NY KOD PROJEKTSETUP: ----------------------------------------------------
@@ -296,14 +306,9 @@ function switchPaymentMethod(e) {
     selectedPaymentOption = e.target.value;
 }
 
-
-
 function isPersonalIdNumberValid() {                    //////
     return personalIdRegEx.exec(personalId.value);
 }
-
-
-
 
 
 function activateOrderButton() {                                                        //////

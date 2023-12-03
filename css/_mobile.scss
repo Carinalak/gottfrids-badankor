@@ -216,7 +216,20 @@ button[disabled]{
   background-color: #cccccc;
   color: #666666;
 }
-
+.cancel-btn {
+    background-color: sandybrown;
+    color: #ffffff;
+    font-weight: bold;
+    border: 0;
+    margin-left: 18px;
+    padding: 5px;
+    border-radius: 8px;
+    width: 50px;
+    cursor: pointer;
+    position: absolute;
+    left: 60px;
+    bottom: 6px;
+}
 .personal-id-text {
     padding-left: 25px;
     position: absolute;
@@ -224,13 +237,11 @@ button[disabled]{
 }
 .hidden {
     display: none;
-}  
-    
+}   
 .card-number-text {          
     padding-left: 5px;
     position: absolute;
     left: 0;
-    
 }
 .card-date-text {                    
     padding-left: 5px;
