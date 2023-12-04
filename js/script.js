@@ -41,7 +41,7 @@ const ducks = [
         price: 39,
         img:
             {
-                src: '/img/affarskvinna.jpg',
+                src: './img/affarskvinna.jpg',
                 alt: 'Anka affärskvinna',
                 width: 280,
                 height: 280,
@@ -69,7 +69,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/farmor.jpg',
+                src: './img/farmor.jpg',
                 alt: 'Anka farmor',
                 width: 280,
                 height: 280,
@@ -83,7 +83,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/darkduck.jpg',
+                src: './img/darkduck.jpg',
                 alt: 'Dark Duck',
                 width: 280,
                 height: 280,
@@ -97,7 +97,7 @@ const ducks = [
         price: 29,
         img: 
             {
-                src: '../img/snorklare.jpg',
+                src: './img/snorklare.jpg',
                 alt: 'Snorklare',
                 width: 280,
                 height: 280,
@@ -111,7 +111,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/boklasare.jpg',
+                src: './img/boklasare.jpg',
                 alt: 'Bokläsare',
                 width: 280,
                 height: 280,
@@ -125,7 +125,7 @@ const ducks = [
         price: 49,
         img: 
             {
-                src: '../img/drake.jpg',
+                src: './img/drake.jpg',
                 alt: 'Drake',
                 width: 280,
                 height: 280,
@@ -139,7 +139,7 @@ const ducks = [
         price: 49,
         img: 
             {
-                src: '../img/drottning.jpg',
+                src: './img/drottning.jpg',
                 alt: 'Drottning',
                 width: 280,
                 height: 280,
@@ -153,7 +153,7 @@ const ducks = [
         price: 49,
         img: 
             {
-                src: '../img/examen.jpg',
+                src: './img/examen.jpg',
                 alt: 'Examen',
                 width: 280,
                 height: 280,
@@ -167,7 +167,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/gamegirl.jpg',
+                src: './img/gamegirl.jpg',
                 alt: 'Gamegild',
                 width: 280,
                 height: 280,
@@ -181,7 +181,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/kirurg.jpg',
+                src: './img/kirurg.jpg',
                 alt: 'Kirurg',
                 width: 280,
                 height: 280,
@@ -195,7 +195,7 @@ const ducks = [
         price: 39,
         img: 
             {
-                src: '../img/superwoman.jpg',
+                src: './img/superwoman.jpg',
                 alt: 'Superwoman',
                 width: 280,
                 height: 280,
@@ -207,12 +207,17 @@ const ducks = [
 ];
     
 //ducks.sort((duck1, duck2) => duck1.name > duck2.name);
+//console.table(ducks);
 
 const girl = ducks.filter( duck => duck.category === 'girl');
 console.table(girl);
 
-//console.table(ducks);
-//let totalItemsInCart = 0;
+const inflation = ducks.map(ducks => Math.round(ducks.price / 1.1));
+
+console.table(inflation);
+
+
+let totalItemsInCart = 0;
 
 function addToCart(e) {
     const index = e.currentTarget.dataset.id;
