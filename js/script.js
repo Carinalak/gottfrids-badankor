@@ -1,7 +1,7 @@
 /*
 1. en fungerande menyknapp kanske
 2. Sida 1: "items-page". En plus och minusknapp, antal, pris, bild.
-3. Sida 2: "shopping-cart". Behöver Trashbin.
+        Klar 3. Sida 2: "shopping-cart". Behöver Trashbin.
 4. Sida 3: "customer-data". Formulär till kundens uppgifter.
 5. Kvar att göra: Sortera produkter utifrån namn, pris, kategori och rating.
 6. Lägg till fler munkar.
@@ -106,9 +106,107 @@ const ducks = [
         amount: 0,
         category: 'boy-ducks',
     }, 
+    {
+        name: 'Bokläsare',
+        price: 39,
+        img: 
+            {
+                src: '../img/boklasare.jpg',
+                alt: 'Bokläsare',
+                width: 280,
+                height: 280,
+            },       
+        rating: 5,
+        amount: 0,
+        category: 'boy-ducks',
+    }, 
+    {
+        name: 'Drake',
+        price: 49,
+        img: 
+            {
+                src: '../img/drake.jpg',
+                alt: 'Drake',
+                width: 280,
+                height: 280,
+            },       
+        rating: 5,
+        amount: 0,
+        category: 'boy-ducks',
+    }, 
+    {
+        name: 'Drottning',
+        price: 49,
+        img: 
+            {
+                src: '../img/drottning.jpg',
+                alt: 'Drottning',
+                width: 280,
+                height: 280,
+            },       
+        rating: 4,
+        amount: 0,
+        category: 'girl-ducks',
+    }, 
+    {
+        name: 'Examen',
+        price: 49,
+        img: 
+            {
+                src: '../img/examen.jpg',
+                alt: 'Examen',
+                width: 280,
+                height: 280,
+            },       
+        rating: 4,
+        amount: 0,
+        category: 'boy-ducks',
+    }, 
+    {
+        name: 'Gamegirl',
+        price: 39,
+        img: 
+            {
+                src: '../img/gamegirl.jpg',
+                alt: 'Gamegild',
+                width: 280,
+                height: 280,
+            },       
+        rating: 4,
+        amount: 0,
+        category: 'girl-ducks',
+    }, 
+    {
+        name: 'Kirurg',
+        price: 39,
+        img: 
+            {
+                src: '../img/kirurg.jpg',
+                alt: 'Kirurg',
+                width: 280,
+                height: 280,
+            },       
+        rating: 5,
+        amount: 0,
+        category: 'boy-ducks',
+    }, 
+    {
+        name: 'Superwoman',
+        price: 39,
+        img: 
+            {
+                src: '../img/superwoman.jpg',
+                alt: 'Superwoman',
+                width: 280,
+                height: 280,
+            },       
+        rating: 4,
+        amount: 0,
+        category: 'girl-ducks',
+    }, 
 ];
     
-
+console.table(ducks);
 let totalItemsInCart = 0;
 
 function addToCart(e) {
