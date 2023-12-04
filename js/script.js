@@ -34,7 +34,7 @@ const ducks = [
 
         rating: 3,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Affärskvinna',
@@ -48,7 +48,7 @@ const ducks = [
             },
         rating: 3,
         amount: 0,
-        category: 'girl-ducks',
+        category: 'girl',
     },
     {
         name: 'Farfar',
@@ -62,7 +62,7 @@ const ducks = [
             },       
         rating: 2,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Farmor',
@@ -76,7 +76,7 @@ const ducks = [
             },       
         rating: 2,
         amount: 0,
-        category: 'girl-ducks',
+        category: 'girl',
     }, 
     {
         name: 'Dark Duck',
@@ -90,7 +90,7 @@ const ducks = [
             },       
         rating: 1,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Snorklare',
@@ -104,7 +104,7 @@ const ducks = [
             },       
         rating: 3,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Bokläsare',
@@ -118,7 +118,7 @@ const ducks = [
             },       
         rating: 5,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Drake',
@@ -132,7 +132,7 @@ const ducks = [
             },       
         rating: 5,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Drottning',
@@ -146,7 +146,7 @@ const ducks = [
             },       
         rating: 4,
         amount: 0,
-        category: 'girl-ducks',
+        category: 'girl',
     }, 
     {
         name: 'Examen',
@@ -160,7 +160,7 @@ const ducks = [
             },       
         rating: 4,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Gamegirl',
@@ -174,7 +174,7 @@ const ducks = [
             },       
         rating: 4,
         amount: 0,
-        category: 'girl-ducks',
+        category: 'girl',
     }, 
     {
         name: 'Kirurg',
@@ -188,7 +188,7 @@ const ducks = [
             },       
         rating: 5,
         amount: 0,
-        category: 'boy-ducks',
+        category: 'boy',
     }, 
     {
         name: 'Superwoman',
@@ -202,12 +202,17 @@ const ducks = [
             },       
         rating: 4,
         amount: 0,
-        category: 'girl-ducks',
+        category: 'girl',
     }, 
 ];
     
-console.table(ducks);
-let totalItemsInCart = 0;
+//ducks.sort((duck1, duck2) => duck1.name > duck2.name);
+
+const girl = ducks.filter( duck => duck.category === 'girl');
+console.table(girl);
+
+//console.table(ducks);
+//let totalItemsInCart = 0;
 
 function addToCart(e) {
     const index = e.currentTarget.dataset.id;
