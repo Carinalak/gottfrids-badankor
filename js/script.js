@@ -251,7 +251,7 @@ function increaseAmount(e) {                        /// 1. increase amount
 
 console.log(increaseAmount);
 }
-
+/*
 function decreaseAmount(e) {                        /// 1. decrease amount
     const index = e.currentTarget.dataset.id.splice;
     if (index > -1) {
@@ -262,8 +262,8 @@ function decreaseAmount(e) {                        /// 1. decrease amount
     }
     console.log(decreaseAmount);
 }
-/*
-function decreaseAmount(e) {
+*/  
+function decreaseAmount(e) {                        /// 1. decrease amount
     const index = e.currentTarget.dataset.id;
     if (ducks[index].amount > 0) {
         ducks[index].amount -= 1;
@@ -272,7 +272,7 @@ function decreaseAmount(e) {
         printCartDucks();
         
     }
-}*/
+}
 
 // Tar bort från varukorgen:
 function removeDuck(e) {
@@ -363,7 +363,7 @@ function printCartDucks() {
     minusBtns.forEach(btn => {
         btn.addEventListener('click', decreaseAmount);                   /////// 3. minusBtns - EventListener - DecreaseAmount
         });
-        plusBtns.forEach(btn => {
+    plusBtns.forEach(btn => {
             btn.addEventListener('click', increaseAmount);                  /////// 3. plusBtns - EventListener - IncreaseAmount
         });
         console.log(plusBtns);
@@ -444,12 +444,12 @@ function switchPaymentMethod(e) {
     selectedPaymentOption = e.target.value;
 }
 
-function isPersonalIdNumberValid() {                    //////
+function isPersonalIdNumberValid() {                    
     return personalIdRegEx.exec(personalId.value);
 }
 
 
-function activateOrderButton() {                                                        //////
+function activateOrderButton() {                                                        
     orderBtn.setAttribute('disabled', '');
     
     if (selectedPaymentOption === 'invoice' && isPersonalIdNumberValid()) {
