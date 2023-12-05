@@ -327,13 +327,8 @@ function printDucks() {
         </article>
         `;
     });
-    const addToCartBtns = document.querySelectorAll('button.add-to-cart');       /////// 2 addToCart - variabel - QuerySelector - add
-
-
     
-    addToCartBtns.forEach(btn => {                                     /////// 3. addToCartBtns - EventListener
-        btn.addEventListener('click', addToCart);
-    });
+    addBtnEventListeners();
 }
 
 
@@ -380,15 +375,32 @@ function printCartDucks() {
     cartMenu.innerHTML = ''; 
     cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
     `;
+
+    addBtnEventListeners();
+}
+printDucks();
+
+function addBtnEventListeners() {
     const removeBtns = document.querySelectorAll('.delete-cart'); 
-    
-    console.log(removeBtns);
     removeBtns.forEach(btn => {
         console.log(btn);
         btn.addEventListener('click', removeDuck);
     });
+
+    const minusBtns = document.querySelectorAll('button.minus');          /////// 2 minusBtns - Variabel - QuerySelector - minus   
+    const plusBtns = document.querySelectorAll('button.plus');           /////// 2 plusBtns - Variabel - QuerySelector - plus
+    const addToCartBtns = document.querySelectorAll('button.add-to-cart');       /////// 2 addToCart - variabel - QuerySelector - add
+
+    minusBtns.forEach(btn => {
+        btn.addEventListener('click', decreaseAmount);
+    });
+    plusBtns.forEach(btn => {
+        btn.addEventListener('click', increaseAmount);                  /////// 3 plusBtns - EventListener - IncreaseAmount
+    });
+    addToCartBtns.forEach(btn => {                                     /////// 3 addToCartBtns - EventListener
+        btn.addEventListener('click', addToCart);
+    });
 }
-printDucks();
 
 
 
