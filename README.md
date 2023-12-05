@@ -6,4 +6,6 @@ Jag valde att sälja badankor i min webshop. Allting ska finnas i samma HTML-fil
 
 Jag gjorde wireframes i Figma. Dessa är bara ett  exempel, så jag kan se hur jag vill ha det på ett ungefär. Slutresultatet blir inte exakt samma, eftersom jag ändrade mig hur jag ville ha det under arbetets gång. För mobilversionen:
 
+Sidan finns live här: https://medieinstitutet.github.io/fed23d-js-grundkurs-webshop-Carinalak/
+
 ![Wireframe för mobil version](img/wireframe/mobile.png)

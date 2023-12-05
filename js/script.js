@@ -26,7 +26,7 @@ const ducks = [
         price: 29,
         img:
             {
-                src: 'img/badring.jpg',
+                src: './img/badring.jpg',
                 alt: 'Anka med badring', 
                 width: 280,
                 height: 280,
@@ -204,6 +204,20 @@ const ducks = [
         amount: 0,
         category: 'girl',
     }, 
+    {
+        name: 'Pussmunnar',
+        price: 49,
+        img: 
+            {
+                src: './img/pussmunnar.jpg',
+                alt: 'Anka med pussmunnar',
+                width: 280,
+                height: 280,
+            },       
+        rating: 5,
+        amount: 0,
+        category: 'girl',
+    }, 
 ];
     
 //ducks.sort((duck1, duck2) => duck1.name > duck2.name);
@@ -228,13 +242,25 @@ function addToCart(e) {
     printCartDucks();
 }
 
-function increaseAmount(e) {
+function increaseAmount(e) {                        /// 1. increase amount
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     totalItemsInCart += 1;
     updateCartIcon();
     printCartDucks();
 
+console.log(increaseAmount);
+}
+
+function decreaseAmount(e) {                        /// 1. decrease amount
+    const index = e.currentTarget.dataset.id.splice;
+    if (index > -1) {
+        totalItemsInCart -= ducks[index].amount;
+        totalItemsInCart -= 1;
+        updateCartIcon();
+        printCartDucks();
+    }
+    console.log(decreaseAmount);
 }
 /*
 function decreaseAmount(e) {
@@ -247,16 +273,6 @@ function decreaseAmount(e) {
         
     }
 }*/
-function decreaseAmount(e) {
-    const index = e.currentTarget.dataset.id.splice;
-    if (index > -1) {
-        totalItemsInCart -= ducks[index].amount;
-        totalItemsInCart -= 1;
-        updateCartIcon();
-        printCartDucks();
-        
-    }
-}
 
 // Tar bort från varukorgen:
 function removeDuck(e) {
@@ -311,19 +327,13 @@ function printDucks() {
         </article>
         `;
     });
-    const minusBtns = document.querySelectorAll('button.minus');          /////// 2 minusBtns - Variabel - QuerySelector - minus   
-    const plusBtns = document.querySelectorAll('button.plus');           /////// 2 plusBtns - Variabel - QuerySelector - plus
     const addToCartBtns = document.querySelectorAll('button.add-to-cart');       /////// 2 addToCart - variabel - QuerySelector - add
 
 
-    minusBtns.forEach(btn => {
-    btn.addEventListener('click', decreaseAmount);});
-    plusBtns.forEach(btn => {
-        btn.addEventListener('click', increaseAmount);                  /////// 3 plusBtns - EventListener - IncreaseAmount
-    });
-    addToCartBtns.forEach(btn => {                                     /////// 3 addToCartBtns - EventListener
+    
+    addToCartBtns.forEach(btn => {                                     /////// 3. addToCartBtns - EventListener
         btn.addEventListener('click', addToCart);
-        });
+    });
 }
 
 
@@ -349,9 +359,20 @@ function printCartDucks() {
             </article>
             `;
         }
+    
         
     });
-    
+    const minusBtns = document.querySelectorAll('button.minus');          /////// 2. minusBtns - Variabel - QuerySelector - minus   
+    const plusBtns = document.querySelectorAll('button.plus');           /////// 2. plusBtns - Variabel - QuerySelector - plus
+   
+    minusBtns.forEach(btn => {
+        btn.addEventListener('click', decreaseAmount);                   /////// 3. minusBtns - EventListener - DecreaseAmount
+        });
+        plusBtns.forEach(btn => {
+            btn.addEventListener('click', increaseAmount);                  /////// 3. plusBtns - EventListener - IncreaseAmount
+        });
+        console.log(plusBtns);
+
     cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
     `;
@@ -359,9 +380,6 @@ function printCartDucks() {
     cartMenu.innerHTML = ''; 
     cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
     `;
-
-
-
     const removeBtns = document.querySelectorAll('.delete-cart'); 
     
     console.log(removeBtns);
