@@ -297,8 +297,6 @@ function getRatingStars(rating) {
 }
 // --------------------------------------------------------- SORT ----------------------------------------------------------
 
-
-
 const sortAlphaBtn = document.querySelector('#sortAlphaBtn');
 sortAlphaBtn.addEventListener('click', () => {
     ducks.sort((duck1, duck2) => duck1.name.localeCompare(duck2.name));
@@ -306,6 +304,21 @@ sortAlphaBtn.addEventListener('click', () => {
     console.table(ducks);
     printDucks();
 });
+
+const sortRatingUpBtn = document.querySelector('#sortRatingUpBtn');
+sortRatingUpBtn.addEventListener('click', () => {
+ducks.sort((duck1, duck2) => duck1.rating - duck2.rating);
+printDucks();
+});
+
+const sortRatingDownBtn = document.querySelector('#sortRatingDownBtn');
+sortRatingDownBtn.addEventListener('click', () => {
+ducks.sort((duck1, duck2) => duck2.rating - duck1.rating);
+printDucks();
+});
+
+
+
 
 
 
