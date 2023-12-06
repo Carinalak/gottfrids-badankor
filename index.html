@@ -31,6 +31,7 @@
           </button>
       </a>
   </div>
+  <!--
   <button id="sortAlphaBtn">Sortera efter namn</button>
   <button id="sortRatingUpBtn">Sortera upp efter rating</button>
   <button id="sortRatingDownBtn">Sortera ner efter rating</button>
@@ -38,25 +39,27 @@
   <button id="sortPriceDownBtn">Dyrast först</button>
   <button id="girlBtn">Ankor tjejer</button>
   <button id="boyBtn">Ankor killar</button>
+-->
+ <form id="categoryForm">
+  <label for="category">Välj kategori</label>
+    <select id="categorySelect">
+      <option value="all">Alla</option>
+      <option value="girl">Ankor tjejer</option>
+      <option value="boy">Ankor killar</option>
+    </select>
+ </form> 
 
- <form>
-  <label for="category">Kategori</label>
-    <select>
-      <option>Ankor tjejer</option>
-      <option>Ankor killar</option>
+ <form id="sortForm">
+  <label for="sort">Sortera efter</label>
+    <select id="sortSelect">
+      <option value="nameAlpha">Namn</option>
+      <option value="priceLowFirst">Lägsta pris</option>
+      <option value="priceHighFirst">Högsta pris</option>
+      <option value="ratingLowFirst">Lägsta rankning</option>
+      <option value="ratingHighFirst">Högsta rankning</option>
     </select>
  </form> 
- <form method="POST">
-  <label for="category">Sortera efter:</label>
-    <select>
-      <option value="sortAlphaBtn">Namn</option>
-      <option id="sortPriceUpBtn">Billigast först</option>
-      <option>Dyrast först</option>
-      <option>Stjärnor neråt</option>
-      <option>Stjärnor uppåt</option>
-    </select>
-   
- </form> 
+ 
   
   
   </nav>

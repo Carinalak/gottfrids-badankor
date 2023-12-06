@@ -219,8 +219,6 @@ const ducks = [
     }, 
 ];
 
-
-
 let totalItemsInCart = 0;
 
 function addToCart(e) {
@@ -231,7 +229,6 @@ function addToCart(e) {
     printDucks();
     printCartDucks();
 }
-
 function increaseAmount(e) {                        /// 1. increase amount
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
@@ -241,18 +238,7 @@ function increaseAmount(e) {                        /// 1. increase amount
 
 console.log(increaseAmount);
 }
-/*
-function decreaseAmount(e) {                        /// 1. decrease amount
-    const index = e.currentTarget.dataset.id.splice;
-    if (index > -1) {
-        totalItemsInCart -= ducks[index].amount;
-        totalItemsInCart -= 1;
-        updateCartIcon();
-        printCartDucks();
-    }
-    console.log(decreaseAmount);
-}
-*/  
+
 function decreaseAmount(e) {                        /// 1. decrease amount
     const index = e.currentTarget.dataset.id;
     if (ducks[index].amount > 0) {
@@ -260,7 +246,7 @@ function decreaseAmount(e) {                        /// 1. decrease amount
         totalItemsInCart -= 1;
         updateCartIcon();
         printCartDucks();
-        
+     
     }
 }
 
@@ -297,57 +283,103 @@ function getRatingStars(rating) {
 }
 // --------------------------------------------------------- SORT ----------------------------------------------------------
 
-const sortAlphaBtn = document.querySelector('#sortAlphaBtn');
-sortAlphaBtn.addEventListener('click', () => {
-    ducks.sort((duck1, duck2) => duck1.name.localeCompare(duck2.name));
-    
-    console.table(ducks);
+
+// Nyyyyyyyyyyyyyyyyyyyyyyyyyyyyy soooooooooooooooooooort ----------------------------
+const sortForm = document.getElementById('sortSelect'); // Use the correct ID
+sortForm.addEventListener('change', handleSortChange);
+
+
+function handleSortChange() {
+    const selectedSortOption = sortForm.value;
+
+    switch (selectedSortOption) {
+        case 'nameAlpha':
+            ducks.sort((duck1, duck2) => duck1.name.localeCompare(duck2.name));
+            break;
+        case 'priceLowFirst':
+            ducks.sort((duck1, duck2) => duck1.price - duck2.price);
+            break;
+        case 'priceHighFirst':
+            ducks.sort((duck1, duck2) => duck2.price - duck1.price);
+            break;
+        case 'ratingLowFirst':
+            ducks.sort((duck1, duck2) => duck1.rating - duck2.rating);
+            break;
+        case 'ratingHighFirst':
+            ducks.sort((duck1, duck2) => duck2.rating - duck1.rating);
+            break;
+        default:
+            // Handle default case if needed
+            break;
+    }
+
+    // Print the sorted ducks
     printDucks();
-});
+}
+// Sluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuut ny sort---------------------------------------------
 
-const sortRatingUpBtn = document.querySelector('#sortRatingUpBtn');
-sortRatingUpBtn.addEventListener('click', () => {
-ducks.sort((duck1, duck2) => duck1.rating - duck2.rating);
-printDucks();
-});
-
-const sortRatingDownBtn = document.querySelector('#sortRatingDownBtn');
-sortRatingDownBtn.addEventListener('click', () => {
-ducks.sort((duck1, duck2) => duck2.rating - duck1.rating);
-printDucks();
-});
-
-const sortPriceUpBtn = document.querySelector('#sortPriceUpBtn');
-sortPriceUpBtn.addEventListener('click', () => {
-ducks.sort((duck1, duck2) => duck1.price - duck2.price);
-printDucks();
-});
-
-const sortPriceDownBtn = document.querySelector('#sortPriceDownBtn');
-sortPriceDownBtn.addEventListener('click', () => {
-ducks.sort((duck1, duck2) => duck2.price - duck1.price);
-
-printDucks();
-});
+// --------------------------------------------------------- FILTER ----------------------------------------------------------
 
 
 
 
-const girlBtn = document.getElementById('girlBtn');
-const boyBtn = document.getElementById('boyBtn');
+// NYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+// Add an event listener to the category select element
+const categorySelect = document.getElementById('categorySelect');
+categorySelect.addEventListener('change', handleCategoryChange);
 
-girlBtn.addEventListener('click', () => {                       // Jag lade till "ducksToPrint" i "printDucks" så att kategorivalen ska fungera.
-    const girlDucks = ducks.filter(duck => duck.category === 'girl');
-    printDucks(girlDucks);
-});
+// Function to handle category change
+function handleCategoryChange() {
+  const selectedCategory = categorySelect.value;
 
-boyBtn.addEventListener('click', () => {
-    const boyDucks = ducks.filter(duck => duck.category === 'boy');
-    printDucks(boyDucks);
-});
+  // Filter ducks based on the selected category
+  const filteredDucks = selectedCategory === 'all' ? ducks : ducks.filter(duck => duck.category === selectedCategory);
+
+  // Print the filtered ducks
+  printDucks(filteredDucks);
+}
+
+// Modify your printDucks function to accept an array of ducks
+function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks" finns endast till för att kunna filltrera kategorierna
+    duckHtmlContainer.innerHTML = '';
+    ducksToPrint.forEach((duck, index) => {             // "ducksToPrint" finns endast för kategorifiltrering
+
+        duckHtmlContainer.innerHTML += 
+        `
+        <article class="img-price-amount-info">
+            
+            <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
+                height="${duck.img.height}" loading="lazy">
+            </div>
+            <h3>${duck.name}</h3> 
+                <div class="price"><span>${duck.price}</span> kr</div>
+                <div class="rating">${getRatingStars(duck.rating)}</div>
+            <div>
+                <button class="add-to-cart" data-id="${index}"> Lägg i varukorgen </button>
+            </div>
+        </article>
+        `;
+    });
+    
+    addBtnEventListeners();
+}
+
+// Initialize the page by printing all ducks
+printDucks(ducks);
 
 
 
+
+
+
+
+
+
+/// NYYYYYYYYYYYYYYYYYYYYYYYYYY SLUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUT
+
+
+
+/* -------------------------------- gammal ------------------------
 // Skriver ut produkterna:
 function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks" finns endast till för att kunna filltrera kategorierna
     duckHtmlContainer.innerHTML = '';
@@ -372,6 +404,7 @@ function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks
     
     addBtnEventListeners();
 }
+// gammal slut -----------------------------------------
 
 // ------------------------- DISCOUNT - RABATT: -------------------------------------------------
 
