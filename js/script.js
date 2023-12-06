@@ -292,8 +292,11 @@ function handleSortChange() {
     const selectedSortOption = sortForm.value;
 
     switch (selectedSortOption) {
-        case 'nameAlpha':
+        case 'nameAlphaFirst':
             ducks.sort((duck1, duck2) => duck1.name.localeCompare(duck2.name));
+            break;
+        case 'nameAlphaLast':
+            ducks.sort((duck1, duck2) => duck2.name.localeCompare(duck1.name));
             break;
         case 'priceLowFirst':
             ducks.sort((duck1, duck2) => duck1.price - duck2.price);
@@ -350,47 +353,12 @@ function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks
     addBtnEventListeners();
 }
 
-// Initialize the page by printing all ducks
 printDucks(ducks);
 
 
 
 
 
-
-
-
-
-/// NYYYYYYYYYYYYYYYYYYYYYYYYYY SLUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUT
-
-
-
-/* -------------------------------- gammal ------------------------
-// Skriver ut produkterna:
-function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks" finns endast till för att kunna filltrera kategorierna
-    duckHtmlContainer.innerHTML = '';
-    ducksToPrint.forEach((duck, index) => {             // "ducksToPrint" finns endast för kategorifiltrering
-
-        duckHtmlContainer.innerHTML += 
-        `
-        <article class="img-price-amount-info">
-            
-            <div><img src="${duck.img.src}" alt="${duck.img.alt}" width="${duck.img.width}"
-                height="${duck.img.height}" loading="lazy">
-            </div>
-            <h3>${duck.name}</h3> 
-                <div class="price"><span>${duck.price}</span> kr</div>
-                <div class="rating">${getRatingStars(duck.rating)}</div>
-            <div>
-                <button class="add-to-cart" data-id="${index}"> Lägg i varukorgen </button>
-            </div>
-        </article>
-        `;
-    });
-    
-    addBtnEventListeners();
-}
-// gammal slut -----------------------------------------
 
 // ------------------------- DISCOUNT - RABATT: -------------------------------------------------
 
