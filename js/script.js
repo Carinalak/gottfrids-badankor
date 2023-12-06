@@ -388,7 +388,7 @@ function addToCart() {
 // Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
 function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
-    let sum  = 0;
+    let sum  = 25;
     ducks.forEach((duck, index) => {
         if (duck.amount > 0) {
             sum += duck.amount * duck.price;
@@ -420,7 +420,9 @@ function printCartDucks() {
         });
         console.log(plusBtns);
 
-    cartHtmlContainer.innerHTML += `<p class="total">Totalt: ${sum} kr
+    cartHtmlContainer.innerHTML += `
+    <div class="shipping-cost">Frakt 25 kr</div>
+    <p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
     `;
 
