@@ -1,5 +1,4 @@
 /*
-1. en fungerande menyknapp kanske
 2. Sida 1: "items-page". En plus och minusknapp, antal, pris, bild.
         Klar 3. Sida 2: "shopping-cart". Behöver Trashbin.
 4. Sida 3: "customer-data". Formulär till kundens uppgifter.
@@ -219,16 +218,7 @@ const ducks = [
         category: 'girl',
     }, 
 ];
-    
-//ducks.sort((duck1, duck2) => duck1.name > duck2.name);
-//console.table(ducks);
 
-const girl = ducks.filter( duck => duck.category === 'girl');
-console.table(girl);
-
-const inflation = ducks.map(ducks => Math.round(ducks.price / 1.1));
-
-console.table(inflation);
 
 
 let totalItemsInCart = 0;
@@ -305,6 +295,23 @@ function getRatingStars(rating) {
 
     return fullStars + emptyStars;
 }
+// --------------------------------------------------------- SORT ----------------------------------------------------------
+
+
+
+const sortAlphaBtn = document.querySelector('#sortAlphaBtn');
+sortAlphaBtn.addEventListener('click', () => {
+    ducks.sort((duck1, duck2) => duck1.name.localeCompare(duck2.name));
+    
+    console.table(ducks);
+    printDucks();
+});
+
+
+
+
+//const girl = ducks.filter( duck => duck.category === 'girl');
+//console.table(girl);
 
 // Skriver ut produkterna:
 function printDucks() {
@@ -331,6 +338,30 @@ function printDucks() {
     addBtnEventListeners();
 }
 
+// ------------------------- DISCOUNT - RABATT: -------------------------------------------------
+
+/*
+const inflation = ducks.map(ducks => Math.round(ducks.price / 1.1));
+
+console.table(inflation);
+
+const discountCodeField = document.querySelector('#discountCode');
+let productCount = 0;
+let totalSum = 0;
+function addToCart() {
+    if (discountCodeField.value === 'anka23') {
+        totalSum +- 8;
+    } else  {
+        totalSum +-10;
+    }
+   // productCount ++;
+    //updateCartInfo();
+}
+*/
+
+
+
+
 
 // Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
 function printCartDucks() {
@@ -354,11 +385,10 @@ function printCartDucks() {
             </article>
             `;
         }
-    
-        
     });
     const minusBtns = document.querySelectorAll('button.minus');          /////// 2. minusBtns - Variabel - QuerySelector - minus   
     const plusBtns = document.querySelectorAll('button.plus');           /////// 2. plusBtns - Variabel - QuerySelector - plus
+    
    
     minusBtns.forEach(btn => {
         btn.addEventListener('click', decreaseAmount);                   /////// 3. minusBtns - EventListener - DecreaseAmount
@@ -481,6 +511,8 @@ function activateOrderButton() {
     
     orderBtn.removeAttribute('disabled');
 }
+
+
 
 
 
