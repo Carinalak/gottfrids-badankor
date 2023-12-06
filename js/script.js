@@ -317,6 +317,21 @@ ducks.sort((duck1, duck2) => duck2.rating - duck1.rating);
 printDucks();
 });
 
+const sortPriceUpBtn = document.querySelector('#sortPriceUpBtn');
+sortPriceUpBtn.addEventListener('click', () => {
+ducks.sort((duck1, duck2) => duck1.price - duck2.price);
+printDucks();
+});
+
+const sortPriceDownBtn = document.querySelector('#sortPriceDownBtn');
+sortPriceDownBtn.addEventListener('click', () => {
+ducks.sort((duck1, duck2) => duck2.price - duck1.price);
+
+printDucks();
+});
+
+
+
 
 
 
