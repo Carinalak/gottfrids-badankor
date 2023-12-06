@@ -284,8 +284,7 @@ function getRatingStars(rating) {
 // --------------------------------------------------------- SORT ----------------------------------------------------------
 
 
-// Nyyyyyyyyyyyyyyyyyyyyyyyyyyyyy soooooooooooooooooooort ----------------------------
-const sortForm = document.getElementById('sortSelect'); // Use the correct ID
+const sortForm = document.getElementById('sortSelect'); 
 sortForm.addEventListener('change', handleSortChange);
 
 
@@ -309,37 +308,24 @@ function handleSortChange() {
             ducks.sort((duck1, duck2) => duck2.rating - duck1.rating);
             break;
         default:
-            // Handle default case if needed
             break;
     }
 
-    // Print the sorted ducks
     printDucks();
 }
-// Sluuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuut ny sort---------------------------------------------
 
 // --------------------------------------------------------- FILTER ----------------------------------------------------------
 
-
-
-
-// NYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
-// Add an event listener to the category select element
 const categorySelect = document.getElementById('categorySelect');
 categorySelect.addEventListener('change', handleCategoryChange);
 
-// Function to handle category change
 function handleCategoryChange() {
   const selectedCategory = categorySelect.value;
-
-  // Filter ducks based on the selected category
   const filteredDucks = selectedCategory === 'all' ? ducks : ducks.filter(duck => duck.category === selectedCategory);
 
-  // Print the filtered ducks
   printDucks(filteredDucks);
 }
 
-// Modify your printDucks function to accept an array of ducks
 function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks" finns endast till för att kunna filltrera kategorierna
     duckHtmlContainer.innerHTML = '';
     ducksToPrint.forEach((duck, index) => {             // "ducksToPrint" finns endast för kategorifiltrering
