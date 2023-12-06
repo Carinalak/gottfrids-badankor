@@ -333,18 +333,25 @@ printDucks();
 
 
 
+const girlBtn = document.getElementById('girlBtn');
+const boyBtn = document.getElementById('boyBtn');
+
+girlBtn.addEventListener('click', () => {                       // Jag lade till "ducksToPrint" i "printDucks" så att kategorivalen ska fungera.
+    const girlDucks = ducks.filter(duck => duck.category === 'girl');
+    printDucks(girlDucks);
+});
+
+boyBtn.addEventListener('click', () => {
+    const boyDucks = ducks.filter(duck => duck.category === 'boy');
+    printDucks(boyDucks);
+});
 
 
-
-
-
-//const girl = ducks.filter( duck => duck.category === 'girl');
-//console.table(girl);
 
 // Skriver ut produkterna:
-function printDucks() {
+function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks" finns endast till för att kunna filltrera kategorierna
     duckHtmlContainer.innerHTML = '';
-    ducks.forEach((duck, index) => {
+    ducksToPrint.forEach((duck, index) => {             // "ducksToPrint" finns endast för kategorifiltrering
 
         duckHtmlContainer.innerHTML += 
         `
