@@ -156,6 +156,7 @@ input[type=number]{
     padding: 20px;
     padding-bottom: 30px;
     background-color: #dad5d1;
+    z-index: -1;
  }
 
 
@@ -258,6 +259,14 @@ button[disabled]{
     width: 20px;
 }
 
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+}
 
   .go-to-pay {
     background-color: sandybrown;

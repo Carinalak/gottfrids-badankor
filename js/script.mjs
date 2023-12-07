@@ -1,223 +1,25 @@
 /*
 
-4. Sida 3: "customer-data". Formulär till kundens uppgifter.
+Bättre formulär
 7. Kvar att göra: Rabatterna!!!
-9. checkbox för godkännande av behandling av personuppgifter.
-checkbox för beställning av nyhetsbrev, ska vara iklickad som default.
+
 rensa-knapp.
 9. Skriv mer i Readme-filen.
 10. Validera.
+avrunda med .math
+gör till en text
+minus från totalsumman
 
 */
 
 // --------------------------------------- PAGE 1 Sales-page:---------------------------------------------------
+
+import ducks from "./ducks.mjs";
+
 const duckHtmlContainer = document.querySelector('#duckContainer');
 const cartHtmlContainer = document.querySelector('#cart');
 
-const ducks = [
-    {
-        name: 'Anka med badring',
-        price: 29,
-        img:
-            {
-                src: './img/badring.jpg',
-                alt: 'Anka med badring', 
-                width: 280,
-                height: 280,
-            },
-
-        rating: 3,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Affärskvinna',
-        price: 39,
-        img:
-            {
-                src: './img/affarskvinna.jpg',
-                alt: 'Anka affärskvinna',
-                width: 280,
-                height: 280,
-            },
-        rating: 3,
-        amount: 0,
-        category: 'girl',
-    },
-    {
-        name: 'Farfar',
-        price: 39,
-        img: 
-            {
-                src: './img/farfar.jpg',
-                alt: 'Anka farfar',
-                width: 280,
-                height: 280,
-            },       
-        rating: 2,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Farmor',
-        price: 39,
-        img: 
-            {
-                src: './img/farmor.jpg',
-                alt: 'Anka farmor',
-                width: 280,
-                height: 280,
-            },       
-        rating: 2,
-        amount: 0,
-        category: 'girl',
-    }, 
-    {
-        name: 'Dark Duck',
-        price: 39,
-        img: 
-            {
-                src: './img/darkduck.jpg',
-                alt: 'Dark Duck',
-                width: 280,
-                height: 280,
-            },       
-        rating: 1,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Snorklare',
-        price: 29,
-        img: 
-            {
-                src: './img/snorklare.jpg',
-                alt: 'Snorklare',
-                width: 280,
-                height: 280,
-            },       
-        rating: 3,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Bokläsare',
-        price: 39,
-        img: 
-            {
-                src: './img/boklasare.jpg',
-                alt: 'Bokläsare',
-                width: 280,
-                height: 280,
-            },       
-        rating: 5,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Drake',
-        price: 49,
-        img: 
-            {
-                src: './img/drake.jpg',
-                alt: 'Drake',
-                width: 280,
-                height: 280,
-            },       
-        rating: 5,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Drottning',
-        price: 49,
-        img: 
-            {
-                src: './img/drottning.jpg',
-                alt: 'Drottning',
-                width: 280,
-                height: 280,
-            },       
-        rating: 4,
-        amount: 0,
-        category: 'girl',
-    }, 
-    {
-        name: 'Examen',
-        price: 49,
-        img: 
-            {
-                src: './img/examen.jpg',
-                alt: 'Examen',
-                width: 280,
-                height: 280,
-            },       
-        rating: 4,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Gamegirl',
-        price: 39,
-        img: 
-            {
-                src: './img/gamegirl.jpg',
-                alt: 'Gamegild',
-                width: 280,
-                height: 280,
-            },       
-        rating: 4,
-        amount: 0,
-        category: 'girl',
-    }, 
-    {
-        name: 'Kirurg',
-        price: 39,
-        img: 
-            {
-                src: './img/kirurg.jpg',
-                alt: 'Kirurg',
-                width: 280,
-                height: 280,
-            },       
-        rating: 5,
-        amount: 0,
-        category: 'boy',
-    }, 
-    {
-        name: 'Superwoman',
-        price: 39,
-        img: 
-            {
-                src: './img/superwoman.jpg',
-                alt: 'Superwoman',
-                width: 280,
-                height: 280,
-            },       
-        rating: 4,
-        amount: 0,
-        category: 'girl',
-    }, 
-    {
-        name: 'Pussmunnar',
-        price: 49,
-        img: 
-            {
-                src: './img/pussmunnar.jpg',
-                alt: 'Anka med pussmunnar',
-                width: 280,
-                height: 280,
-            },       
-        rating: 5,
-        amount: 0,
-        category: 'girl',
-    }, 
-];
-
 let totalItemsInCart = 0;
-
-
-
 
 function addToCart(e) {
     const index = e.currentTarget.dataset.id;
@@ -268,7 +70,6 @@ function updateCartIcon() {
         cartIcon.innerHTML = 'shopping_cart';
     }
 }
-
 function getRatingStars(rating) {
     const starIcon = '<i class="fas fa-star"></i>';
     const emptyStarIcon = '<i class="far fa-star"></i>';
@@ -280,10 +81,8 @@ function getRatingStars(rating) {
 }
 // --------------------------------------------------------- SORT ----------------------------------------------------------
 
-
 const sortForm = document.getElementById('sortSelect'); 
 sortForm.addEventListener('change', handleSortChange);
-
 
 function handleSortChange() {
     const selectedSortOption = sortForm.value;
@@ -310,7 +109,6 @@ function handleSortChange() {
         default:
             break;
     }
-
     printDucks();
 }
 
@@ -358,36 +156,7 @@ printDucks(ducks);
 
 // ------------------------- DISCOUNT - RABATT: -------------------------------------------------
 
-
 /*
-
-// check if discount is valid:
-function isDiscountValid() {
-    const today = new Date();
-    // is it Monday?:
-    const isThursday = today.getDay() === 4;
-    // check if its before 10 o clock:
-    const isBeforeThirteen = today.getHours() < 13;
-
-    return isThursday && isBeforeThirteen;
-}
-*/
-
-
-/*
-const discountCodeField = document.querySelector('#discountCode');
-let productCount = 0;
-let totalSum = 0;
-function addToCart() {
-    if (discountCodeField.value === 'anka23') {
-        totalSum +- 8;
-    } else  {
-        totalSum +-10;
-    }
-   // productCount ++;
-    //updateCartInfo();
-}
-*/
 
 let totalOrderSum = 0;
 for (let i = 0; i < ducks.length; i++) {
@@ -396,19 +165,20 @@ for (let i = 0; i < ducks.length; i++) {
   }
 }
 console.log(totalOrderSum);
-
+*/
 const today = new Date();
-       
 
-          
 // Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
 function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
     let sum  = 0;
-    let shippingPrice = 25;
+    let shipping = 25;
+    let monday = 0;
     ducks.forEach((duck, index) => {
         if (duck.amount > 0) {
-            sum += (duck.amount * duck.price) + shippingPrice;
+            sum += (duck.amount * duck.price);
+            shipping += (duck.amount * duck.price) +25;
+            monday += (duck.amount * duck.price) * 0.9;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
                 <div><button id="delete-${index}" class="material-symbols-outlined delete-cart">delete</button></div> 
@@ -426,7 +196,7 @@ function printCartDucks() {
          }
          if (today.getDay() === 4 && today.getHours() < 18) {
             cartHtmlContainer.innerHTML += 
-            `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${totalOrderSum * 0.1} kr rabatt</p>`;
+            `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${sum * 0.1} kr rabatt</p>`;
           }
         
         
