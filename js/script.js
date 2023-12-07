@@ -1,20 +1,15 @@
 /*
-2. Sida 1: "items-page". En plus och minusknapp, antal, pris, bild.
-        Klar 3. Sida 2: "shopping-cart". Behöver Trashbin.
+
 4. Sida 3: "customer-data". Formulär till kundens uppgifter.
-5. Kvar att göra: Sortera produkter utifrån namn, pris, kategori och rating.
-6. Lägg till fler munkar.
-7. Rabatterna!!!
-8. Lägg till fält för rabatter.
+7. Kvar att göra: Rabatterna!!!
 9. checkbox för godkännande av behandling av personuppgifter.
-checkbox för beställning av nyhetsbrev,ska vara iklickad som default.
-rensa-kanpp.
+checkbox för beställning av nyhetsbrev, ska vara iklickad som default.
+rensa-knapp.
 9. Skriv mer i Readme-filen.
 10. Validera.
-11. Publicera online.
+
 */
-// duckContainer
-// -------------------------------------  NY KOD PROJEKTSETUP: ----------------------------------------------------
+
 // --------------------------------------- PAGE 1 Sales-page:---------------------------------------------------
 const duckHtmlContainer = document.querySelector('#duckContainer');
 const cartHtmlContainer = document.querySelector('#cart');
@@ -221,10 +216,52 @@ const ducks = [
 
 let totalItemsInCart = 0;
 
+
+
+// ------------------------- DISCOUNT - RABATT: -------------------------------------------------
+
+
+const inflation = ducks.map(ducks => Math.round(ducks.price / 1.1));
+
+console.table(inflation);
+
+// check if discount is valid:
+function isDiscoutValid() {
+    const today = new Date();
+    // is it Monday?:
+    const isMonday = today.getDay() === 1;
+    // check if its before 10 o clock:
+    const isBeforeTen = today.getHours() < 10;
+
+    return isMonday && isBeforeTen;
+}
+
+
+
+/*
+const discountCodeField = document.querySelector('#discountCode');
+let productCount = 0;
+let totalSum = 0;
+function addToCart() {
+    if (discountCodeField.value === 'anka23') {
+        totalSum +- 8;
+    } else  {
+        totalSum +-10;
+    }
+   // productCount ++;
+    //updateCartInfo();
+}
+*/
+
+
 function addToCart(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     totalItemsInCart += 1;
+    if (isDiscountValid()) {
+        ducks[index].discountedPrice = ducks[index].price / 1.1;
+        cartHtmlContainer.innerHTML += `<p class="discount-message">Du får 10% rabatt idag!</p>`;
+    }
     updateCartIcon();
     printDucks();
     printCartDucks();
@@ -270,7 +307,6 @@ function updateCartIcon() {
         cartIcon.innerHTML = 'shopping_cart';
     }
 }
-
 
 function getRatingStars(rating) {
     const starIcon = '<i class="fas fa-star"></i>';
@@ -358,28 +394,6 @@ printDucks(ducks);
 
 
 
-
-
-// ------------------------- DISCOUNT - RABATT: -------------------------------------------------
-
-/*
-const inflation = ducks.map(ducks => Math.round(ducks.price / 1.1));
-
-console.table(inflation);
-
-const discountCodeField = document.querySelector('#discountCode');
-let productCount = 0;
-let totalSum = 0;
-function addToCart() {
-    if (discountCodeField.value === 'anka23') {
-        totalSum +- 8;
-    } else  {
-        totalSum +-10;
-    }
-   // productCount ++;
-    //updateCartInfo();
-}
-*/
 
 
 
