@@ -389,28 +389,26 @@ function addToCart() {
 }
 */
 
-// Loopa igenom produkt-arrayen, och för varje produkt
+let totalOrderSum = 0;
+for (let i = 0; i < ducks.length; i++) {
+  if (ducks[i].amount > 0) {
+    totalOrderSum += ducks[i].amount * ducks[i].price;
+  }
+}
+console.log(totalOrderSum);
 
-const totalOrderSum = ducks.reduce((currentValue, duck) => {
-    // Kolla om vi beställt minst 1 ex av den produkten
-    if (duck.amount > 0) {
-      // Gångra produktens pris med antal beställda, och addera till föregående summa
-      return (duck.price * duck.amount) + currentValue;
-    }
-    // Om vi inte beställt några ex av denna produkt, returnera föregående summa
-    return currentValue;
-  }, 0); // 0 = initial beställningssumma
-  
-  console.log(totalOrderSum); 
+const today = new Date();
+       
 
-
+          
 // Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
 function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
-    let sum  = 25;
+    let sum  = 0;
+    let shippingPrice = 25;
     ducks.forEach((duck, index) => {
         if (duck.amount > 0) {
-            sum += duck.amount * duck.price;
+            sum += (duck.amount * duck.price) + shippingPrice;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
                 <div><button id="delete-${index}" class="material-symbols-outlined delete-cart">delete</button></div> 
@@ -425,7 +423,11 @@ function printCartDucks() {
             </div>
             </article>
             `;
-        } 
+         }
+         if (today.getDay() === 4 && today.getHours() < 18) {
+            cartHtmlContainer.innerHTML += 
+            `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${totalOrderSum * 0.1} kr rabatt</p>`;
+          }
         
         
     });
@@ -444,6 +446,7 @@ function printCartDucks() {
 if (totalItemsInCart > 0) {        
     cartHtmlContainer.innerHTML += `
     <div class="shipping-cost">Frakt 25 kr</div>
+    
     <p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
     `;
@@ -452,7 +455,7 @@ if (totalItemsInCart > 0) {
     Hitta något att köpa.</p>`;
     cartMenu.innerHTML = `<p class="total-menu">Totalt: 0 kr</p>`;
     return;
-}
+}  
 
     cartMenu.innerHTML = ''; 
     cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
@@ -463,10 +466,7 @@ if (totalItemsInCart > 0) {
 printDucks();
 
 
-const today = new Date();
-if (today.getDay() === 4 && today.getHours() < 18) { 
-    cartHtmlContainer.innerHTML += `<p>Måndagsrabatt: 10% på hela beställningen</p>`, totalOrdersum * 0.1, `kr. Totalsumman blir:`, totalOrderSum * 0.9 + 25, `kr.`;
-}
+
 
 function addBtnEventListeners() {
     const removeBtns = document.querySelectorAll('.delete-cart'); 
