@@ -419,12 +419,18 @@ function printCartDucks() {
             btn.addEventListener('click', increaseAmount);                  /////// 3. plusBtns - EventListener - IncreaseAmount
         });
         console.log(plusBtns);
-
+if (totalItemsInCart > 0) {        
     cartHtmlContainer.innerHTML += `
     <div class="shipping-cost">Frakt 25 kr</div>
     <p class="total">Totalt: ${sum} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
     `;
+} else {
+    cartHtmlContainer.innerHTML += `<p>Varukorgen är tom. 
+    Hitta något att köpa.</p>`;
+    cartMenu.innerHTML = `<p class="total-menu">Totalt: 0 kr</p>`;
+    return;
+}
 
     cartMenu.innerHTML = ''; 
     cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
