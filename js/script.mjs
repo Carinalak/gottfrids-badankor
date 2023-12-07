@@ -172,12 +172,12 @@ const today = new Date();
 function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
     let sum  = 0;
-    let shipping = 25;
+    let sumShipping = 0;
     let monday = 0;
     ducks.forEach((duck, index) => {
         if (duck.amount > 0) {
             sum += (duck.amount * duck.price);
-            shipping += (duck.amount * duck.price) +25;
+            sumShipping += (duck.amount * duck.price) +25;
             monday += (duck.amount * duck.price) * 0.9;
             cartHtmlContainer.innerHTML += `
             <article class="cart">
@@ -194,9 +194,15 @@ function printCartDucks() {
             </article>
             `;
          }
-         if (today.getDay() === 4 && today.getHours() < 18) {
+         if (today.getDay() === 4 && today.getHours() < 19) {
             cartHtmlContainer.innerHTML += 
-            `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${sum * 0.1} kr rabatt</p>`;
+            `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${Math.round(sum * 0.1)} kr rabatt</p>`;
+            cartHtmlContainer.innerHTML += `
+             <div class="shipping-cost">Frakt 25 kr</div>
+    
+            <p class="total">Totalt: ${Math.round(monday + 25)} kr
+            <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
+            `;
           }
         
         
@@ -217,7 +223,7 @@ if (totalItemsInCart > 0) {
     cartHtmlContainer.innerHTML += `
     <div class="shipping-cost">Frakt 25 kr</div>
     
-    <p class="total">Totalt: ${sum} kr
+    <p class="total">Totalt: ${sumShipping} kr
     <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
     `;
 } else {
@@ -228,7 +234,7 @@ if (totalItemsInCart > 0) {
 }  
 
     cartMenu.innerHTML = ''; 
-    cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sum} kr
+    cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sumShipping} kr
     `;
 
     addBtnEventListeners();
