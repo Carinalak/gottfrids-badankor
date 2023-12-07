@@ -218,50 +218,11 @@ let totalItemsInCart = 0;
 
 
 
-// ------------------------- DISCOUNT - RABATT: -------------------------------------------------
-
-
-const inflation = ducks.map(ducks => Math.round(ducks.price / 1.1));
-
-console.table(inflation);
-
-// check if discount is valid:
-function isDiscoutValid() {
-    const today = new Date();
-    // is it Monday?:
-    const isMonday = today.getDay() === 1;
-    // check if its before 10 o clock:
-    const isBeforeTen = today.getHours() < 10;
-
-    return isMonday && isBeforeTen;
-}
-
-
-
-/*
-const discountCodeField = document.querySelector('#discountCode');
-let productCount = 0;
-let totalSum = 0;
-function addToCart() {
-    if (discountCodeField.value === 'anka23') {
-        totalSum +- 8;
-    } else  {
-        totalSum +-10;
-    }
-   // productCount ++;
-    //updateCartInfo();
-}
-*/
-
 
 function addToCart(e) {
     const index = e.currentTarget.dataset.id;
     ducks[index].amount += 1;
     totalItemsInCart += 1;
-    if (isDiscountValid()) {
-        ducks[index].discountedPrice = ducks[index].price / 1.1;
-        cartHtmlContainer.innerHTML += `<p class="discount-message">Du får 10% rabatt idag!</p>`;
-    }
     updateCartIcon();
     printDucks();
     printCartDucks();
@@ -395,8 +356,52 @@ printDucks(ducks);
 
 
 
+// ------------------------- DISCOUNT - RABATT: -------------------------------------------------
 
 
+/*
+
+// check if discount is valid:
+function isDiscountValid() {
+    const today = new Date();
+    // is it Monday?:
+    const isThursday = today.getDay() === 4;
+    // check if its before 10 o clock:
+    const isBeforeThirteen = today.getHours() < 13;
+
+    return isThursday && isBeforeThirteen;
+}
+*/
+
+
+/*
+const discountCodeField = document.querySelector('#discountCode');
+let productCount = 0;
+let totalSum = 0;
+function addToCart() {
+    if (discountCodeField.value === 'anka23') {
+        totalSum +- 8;
+    } else  {
+        totalSum +-10;
+    }
+   // productCount ++;
+    //updateCartInfo();
+}
+*/
+
+// Loopa igenom produkt-arrayen, och för varje produkt
+
+const totalOrderSum = ducks.reduce((currentValue, duck) => {
+    // Kolla om vi beställt minst 1 ex av den produkten
+    if (duck.amount > 0) {
+      // Gångra produktens pris med antal beställda, och addera till föregående summa
+      return (duck.price * duck.amount) + currentValue;
+    }
+    // Om vi inte beställt några ex av denna produkt, returnera föregående summa
+    return currentValue;
+  }, 0); // 0 = initial beställningssumma
+  
+  console.log(totalOrderSum); 
 
 
 // Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
@@ -420,7 +425,9 @@ function printCartDucks() {
             </div>
             </article>
             `;
-        }
+        } 
+        
+        
     });
     const minusBtns = document.querySelectorAll('button.minus');          /////// 2. minusBtns - Variabel - QuerySelector - minus   
     const plusBtns = document.querySelectorAll('button.plus');           /////// 2. plusBtns - Variabel - QuerySelector - plus
@@ -433,6 +440,7 @@ function printCartDucks() {
             btn.addEventListener('click', increaseAmount);                  /////// 3. plusBtns - EventListener - IncreaseAmount
         });
         console.log(plusBtns);
+
 if (totalItemsInCart > 0) {        
     cartHtmlContainer.innerHTML += `
     <div class="shipping-cost">Frakt 25 kr</div>
@@ -453,6 +461,12 @@ if (totalItemsInCart > 0) {
     addBtnEventListeners();
 }
 printDucks();
+
+
+const today = new Date();
+if (today.getDay() === 4 && today.getHours() < 18) { 
+    cartHtmlContainer.innerHTML += `<p>Måndagsrabatt: 10% på hela beställningen</p>`, totalOrdersum * 0.1, `kr. Totalsumman blir:`, totalOrderSum * 0.9 + 25, `kr.`;
+}
 
 function addBtnEventListeners() {
     const removeBtns = document.querySelectorAll('.delete-cart'); 
