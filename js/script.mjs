@@ -194,6 +194,8 @@ function printCartDucks() {
             </article>
             `;
          }
+// Problem med 10% rabatten: 
+
          if (today.getDay() === 4 && today.getHours() < 19) {
             cartHtmlContainer.innerHTML += 
             `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${Math.round(sum * 0.1)} kr rabatt</p>`;
@@ -207,6 +209,29 @@ function printCartDucks() {
         
         
     });
+// ---------------------------------------- TIMER --------------------------------------------------------------------
+
+// Problem: När jag deletar en produkt från varukorgen, dyker först meddelandet "Varukorgen är tom" upp, som det ska.
+// Det ersätts dock med timer-meddelandet efter den tid timern är inställd, som jag inte vill ha där då.
+
+
+    setTimeout(clearCartHtmlContainer, 5000);
+    
+    function clearCartHtmlContainer() {
+        totalItemsInCart = 0;
+        ducks.forEach((duck) => {
+        duck.amount = 0;
+    });
+    
+    updateCartIcon();
+    printDucks();
+    printCartDucks();
+
+    cartHtmlContainer.innerHTML = 'Det har tagit för lång tid, varukorgen har tömts.';
+    } 
+    
+// ---------------------------------------- TIMER END --------------------------------------------------------------------
+
     const minusBtns = document.querySelectorAll('button.minus');          /////// 2. minusBtns - Variabel - QuerySelector - minus   
     const plusBtns = document.querySelectorAll('button.plus');           /////// 2. plusBtns - Variabel - QuerySelector - plus
     
