@@ -2,6 +2,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12879009&assignment_repo_type=AssignmentRepo)
 
 Jag går på en Front End -utbildning på Medieinstitutet och vi har hittills lärt oss HTML och CSS. Det här projektet är en individuell inlämningsuppgift vi fick av vår lärare Jenni, där vi ska göra en webshop, med fokus på JavaScript, som vi håller på att lära oss medan vi gör uppgiften, så jag kunde ingen JavaScript alls innan dess. På fyra veckor önskar jag att jag kunde hinna mer, men som nybörjare är detta en bra början. 
+sidan är responsiv och jag har tänkt på tillgänglighet.
  
 Allting ska finnas i samma HTML-fil: säljsida, varukorg och kassa. Jag valde att sälja badankor i min webshop. 
 Sidan finns live här: https://medieinstitutet.github.io/fed23d-js-grundkurs-webshop-Carinalak/

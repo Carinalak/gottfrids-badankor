@@ -1,16 +1,5 @@
 
 @import "navigation";
 @import "mobile";
-
-@media screen and (min-width: 640px) {
-    @import "tablet";
-}
-/*
-@import "vendor/normalize";
-
-*/
-
-
-
-
+@import "tablet";
 

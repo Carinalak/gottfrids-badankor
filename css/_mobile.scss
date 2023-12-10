@@ -24,7 +24,7 @@ h2 {
 }
 .plus-minus {
     display: flex;
-    flex-direction: columns;
+    flex-direction: row;
 }
 .minus {
    background-color: black;
@@ -101,7 +101,6 @@ input[type=number]{
     display: flex;
     flex-direction: column;
     padding: 10px;
-
 }
 .total {
     font-weight: bold;
@@ -136,7 +135,7 @@ input[type=number]{
     font-size: 1rem;
 }
 
-////////////   Name and address form                   ////////////////////////////////////////////////////////////////////////////
+/* --------------------------------   Name and address form ---------------------------- */
 .name-address-form {
     width: 330px;
     border: 1px solid black;
@@ -151,8 +150,7 @@ input[type=number]{
     
  }
 
-////////////   Payment form                   ////////////////////////////////////////////////////////////////////////////
-
+/* --------------------------------- Payment form --------------------------------------- */
 .payment-options {
    width: 330px;
    border: 1px solid black;
@@ -268,9 +266,7 @@ button[disabled]{
   }
 .cart-container {
     position: relative;
-    //display: inline-block;
 }
-
 .cart-counter {
     position: absolute;
     top: -6px;

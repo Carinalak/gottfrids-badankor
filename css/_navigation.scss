@@ -40,6 +40,7 @@ h1 {
     padding-right: 0;
 }
 /* Hamburgerknapp börjar: */
+
 .toggleMenu {
     border-radius: 8px;
     border: 0;
@@ -47,26 +48,16 @@ h1 {
     padding: 4px 8px;
     color: #ffffff;
     background: transparent;
-    span {
-        display: block;
-        background-color: #000000;
-        width: 35px;
-        height: 4px;
-        border-radius:4px;
-        margin-bottom: 4px;
-    }
-    &open {
-        span:nth-child(2) {
-            display: none;
-        }
-        span:nth-child(1) {
-            transform: rotate(45deg);
-        }
-        span:nth-child(3) {
-            transform: rotate(-45deg);
-        }
-    }
 }
+.toggleMenu span  {
+    display: block;
+    background-color: #000000;
+    width: 35px;
+    height: 4px;
+    border-radius:4px;
+    margin-bottom: 4px;
+}
+
 /* Hamburgerknapp slutar */
 
 /* Shopping-cart button börjar */
@@ -79,7 +70,7 @@ h1 {
 /* Shopping-cart button slutar */
 
 
-// ------------------------------------- TABLET -----------------------------------------
+/* ------------------------------------- TABLET ----------------------------------------- */
 @media screen and (min-width: 640px) {
     h1 { 
         font-size: 3rem;
@@ -100,10 +91,8 @@ h1 {
 
 }
 
-// ------------------------------------- DESKTOP -----------------------------------------
+/* ------------------------------------- DESKTOP ----------------------------------------- */
 @media screen and (min-width: 800px) {
- 
- 
      h1 {
          font-size: 3rem;
          padding-left: 10%;
