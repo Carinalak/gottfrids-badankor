@@ -7,20 +7,20 @@ sidan är responsiv och jag har tänkt på tillgänglighet.
 Allting ska finnas i samma HTML-fil: säljsida, varukorg och kassa. Jag valde att sälja badankor i min webshop. 
 Sidan finns live här: https://medieinstitutet.github.io/fed23d-js-grundkurs-webshop-Carinalak/
 
-Dessa tekniker använder jag:
-Vanilla JavaScript
-HTML 
-CSS
-SCSS
+Dessa tekniker använder jag:  
+Vanilla JavaScript  
+HTML  
+CSS  
+SASS  
 
-Dessa program:
-Visual Studio Code - Jag trivs med den!
-Figma - Tycker om den.
-Photoshop - Jag älskar Photoshop!
+Dessa program:  
+Visual Studio Code  
+Figma  
+Photoshop  
 
-Jag har delat upp scss -filerna i mobil och tablet-version, samt en scss-fil för endast navigationsmenyn där både mobil, tablet och desktop-version till menyn finns, där jag har en hamburgermeny som inte är aktiverad, kundkorgsikon samt sorteringsknappar.
+Jag har delat upp scss -filerna i mobil och tablet-version, samt en scss-fil för endast navigationsmenyn där både mobil, tablet och desktop-version till menyn finns, där finns en hamburgermeny som inte är aktiverad, kundkorgsikon samt sorteringsknappar.
 
-JavaScript-filerna finns i två moduler, ducks.mjs där jag har listan på alla produkter, och script.mjs där resten finns. Jag har delat av script.mjs med ordentliga kommentarer, så att det blir enklare att hitta i koden.
+JavaScript-filerna finns i två moduler, ducks.mjs där jag har listan på alla produkter, och script.mjs där resten finns. Jag har delat av script.mjs med kommentarer, så att det blir enklare att hitta i koden.
 
 Jag har använt Photoshop till att beskära alla bilder så att de har samma storlek och proportioner.
 
