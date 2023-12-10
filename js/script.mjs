@@ -4,7 +4,6 @@ Bättre formulär
 7. Kvar att göra: Rabatterna!!!
 
 rensa-knapp.
-9. Skriv mer i Readme-filen.
 10. Validera.
 avrunda med .math
 gör till en text

@@ -90,14 +90,12 @@ input[type=number]{
 .rating {
     margin-bottom: 10px;
 }
-
 .cart {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
     width: 100%;
-
 }
 .cart-text {
     display: flex;
@@ -129,8 +127,6 @@ input[type=number]{
     width: 100px;
     cursor: pointer;
 }
-
-
 .customer-form {         
     display: grid;
     gap: 10px;
@@ -139,6 +135,7 @@ input[type=number]{
     width: 250px;
     font-size: 1rem;
 }
+
 ////////////   Name and address form                   ////////////////////////////////////////////////////////////////////////////
 .name-address-form {
     width: 300px;
@@ -153,7 +150,6 @@ input[type=number]{
     background-color: #dad5d1;
     
  }
-
 
 ////////////   Payment form                   ////////////////////////////////////////////////////////////////////////////
 
@@ -249,20 +245,16 @@ button[disabled]{
     position: absolute;
     left: 0;
 }
-
 .small {
     width: 20px;
 }
-
 .checkboxes {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding-top: 8px;
     padding-bottom: 8px;
-    
 }
-
   .go-to-pay {
     background-color: sandybrown;
     color: #ffffff;
@@ -274,12 +266,9 @@ button[disabled]{
     width: 120px;
     cursor: pointer;
   }
-
-
 .cart-container {
     position: relative;
     //display: inline-block;
-
 }
 
 .cart-counter {
@@ -297,7 +286,4 @@ button[disabled]{
 .cart-icon {
     transform: scale(1.1);
 }
-
-
-  /* slut */
   
