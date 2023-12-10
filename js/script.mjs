@@ -1,15 +1,3 @@
-/*
-
-Bättre formulär
-7. Kvar att göra: Rabatterna!!!
-
-rensa-knapp.
-10. Validera.
-avrunda med .math
-gör till en text
-minus från totalsumman
-
-*/
 
 // --------------------------------------- PAGE 1 Sales-page:---------------------------------------------------
 
@@ -45,14 +33,12 @@ function decreaseAmount(e) {                        /// 1. decrease amount
         totalItemsInCart -= 1;
         updateCartIcon();
         printCartDucks();
-     
     }
 }
 
-// Tar bort från varukorgen:
+// Remove from cart:
 function removeDuck(e) {
-    const index = e.currentTarget.id.replace('delete-', '');
-    
+    const index = e.currentTarget.id.replace('delete-', '');  
     if (index > -1) {
         totalItemsInCart -= ducks[index].amount;
         ducks[index].amount = 0; 
@@ -72,12 +58,11 @@ function updateCartIcon() {
 function getRatingStars(rating) {
     const starIcon = '<i class="fas fa-star"></i>';
     const emptyStarIcon = '<i class="far fa-star"></i>';
-
     const fullStars = starIcon.repeat(rating);
     const emptyStars = emptyStarIcon.repeat(5 - rating);
-
     return fullStars + emptyStars;
 }
+
 // --------------------------------------------------------- SORT ----------------------------------------------------------
 
 const sortForm = document.getElementById('sortSelect'); 
@@ -85,7 +70,6 @@ sortForm.addEventListener('change', handleSortChange);
 
 function handleSortChange() {
     const selectedSortOption = sortForm.value;
-
     switch (selectedSortOption) {
         case 'nameAlphaFirst':
             ducks.sort((duck1, duck2) => duck1.name.localeCompare(duck2.name));
@@ -119,7 +103,6 @@ categorySelect.addEventListener('change', handleCategoryChange);
 function handleCategoryChange() {
   const selectedCategory = categorySelect.value;
   const filteredDucks = selectedCategory === 'all' ? ducks : ducks.filter(duck => duck.category === selectedCategory);
-
   printDucks(filteredDucks);
 }
 
@@ -149,25 +132,7 @@ function printDucks(ducksToPrint = ducks) {             // "ducksToPrint = ducks
 
 printDucks(ducks);
 
-
-
-
-
-// ------------------------- DISCOUNT - RABATT: -------------------------------------------------
-
-/*
-
-let totalOrderSum = 0;
-for (let i = 0; i < ducks.length; i++) {
-  if (ducks[i].amount > 0) {
-    totalOrderSum += ducks[i].amount * ducks[i].price;
-  }
-}
-console.log(totalOrderSum);
-*/
-const today = new Date();
-
-// Ducks som man har beställt fler än 0 av: //---------------------------------  Cart ------------------------------------------------
+//---------------------------------  CART ------------------------------------------------
 function printCartDucks() {
     cartHtmlContainer.innerHTML = '';
     let sum  = 0;
@@ -193,11 +158,14 @@ function printCartDucks() {
             </article>
             `;
          }
-// Problem med 10% rabatten: 
+// --------------------- DISCOUNT ------------------------------
+// Every monday before 10 o'clock there's a 10% discount:
 
-         if (today.getDay() === 4 && today.getHours() < 19) {
+        const today = new Date();
+         if (today.getDay() === 1 && today.getHours() < 10) {
             cartHtmlContainer.innerHTML += 
             `<p>Måndagsrabatt: 10% på hela beställningen: Du får: ${Math.round(sum * 0.1)} kr rabatt</p>`;
+           
             cartHtmlContainer.innerHTML += `
              <div class="shipping-cost">Frakt 25 kr</div>
     
@@ -205,15 +173,10 @@ function printCartDucks() {
             <a href="#checkout"><button class="checkout-btn">Gå till kassan</button></a></p>
             `;
           }
-        
-        
     });
-// ---------------------------------------- TIMER --------------------------------------------------------------------
+// ---------------------------------------- TIMER START --------------------------------------------------------------------
 
-// Problem: När jag deletar en produkt från varukorgen, dyker först meddelandet "Varukorgen är tom" upp, som det ska.
-// Det ersätts dock med timer-meddelandet efter den tid timern är inställd, som jag inte vill ha där då.
-
-    setTimeout(clearCartHtmlContainer, 900000);
+    setTimeout(clearCartHtmlContainer, 900000); // Cart is deleted after 15 minutes
 
     function clearCartHtmlContainer() {
         totalItemsInCart = 0;
@@ -225,13 +188,7 @@ function printCartDucks() {
     printCartDucks();
 
     cartHtmlContainer.innerHTML = 'Det har tagit för lång tid, varukorgen har tömts.';
-
-   // setTimeout(() => {
-    //    cartHtmlContainer.innerHTML = `<p>Varukorgen är tom. Hitta något att köpa.</p>`; 
-   // }, 1000000);
     } 
-   
-    
 // ---------------------------------------- TIMER END --------------------------------------------------------------------
 
     const minusBtns = document.querySelectorAll('button.minus');          /////// 2. minusBtns - Variabel - QuerySelector - minus   
@@ -265,8 +222,8 @@ if (totalItemsInCart > 0) {
 
     addBtnEventListeners();
 }
-printDucks();
 
+printDucks();
 
 function addBtnEventListeners() {
     const removeBtns = document.querySelectorAll('.delete-cart'); 
@@ -289,8 +246,6 @@ function addBtnEventListeners() {
         btn.addEventListener('click', addToCart);
     });
 }
-
-
 
 // -------------------------- Card payment checkout ----------------------- //
 const cardInvoiceRadios = Array.from(document.querySelectorAll('input[name="payment-option"]'));

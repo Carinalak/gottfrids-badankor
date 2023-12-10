@@ -33,7 +33,7 @@
   </div>
 <div class="dropdown-container">
  <form id="categoryForm" class="form-drop-down">
-    <select id="categorySelect" class="form-drop-down-inner" name="Välj kategori" placeholder="Välj kategori">
+    <select id="categorySelect" class="form-drop-down-inner" name="Välj kategori">
       <option selected>Kategori</option>
       <option value="all">Alla</option>
       <option value="girl">Ankor tjejer</option>
@@ -42,7 +42,7 @@
  </form> 
 
  <form id="sortForm" class="form-drop-down">
-    <select id="sortSelect" class="form-drop-down-inner" name="Sortera efter" placeholder="Sortera efter">
+    <select id="sortSelect" class="form-drop-down-inner" name="Sortera efter">
       <option selected>Sortera</option>
       <option value="nameAlphaFirst">Namn ner</option>
       <option value="nameAlphaLast">Namn upp</option>
@@ -57,172 +57,115 @@
  </header>  
  <main>
   
- <section class="void-left">dd</section>
+ <section class="void-left">
+ </section>
 
 
  <section class="main-pages"> 
 
-  <!------------------------------------ PAGE 1 - items-page ----------------------------------->
+  <!-- ---------------------------------- PAGE 1 - items-page --------------------------------- -->
   <article class="items-page">
-
     <div id="duckContainer" class="duck-container"></div>
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
   </article> 
-<!------------------------------------ PAGE 2 - shopping-cart ----------------------------------->
+<!-- ---------------------------------- PAGE 2 - shopping-cart --------------------------------- -->
   <article class="shopping-cart">
-
     <a name="shoppingcart"><h2>Varukorg</h2></a>
     <div id="cart"></div>
-    
-
-
-
-
-
-
-
-
-
-
-
   </article>
-  <!------------------------------------ PAGE 3 - customer-data ----------------------------------->
+  <!-- ---------------------------------- PAGE 3 - customer-data --------------------------------- -->
   <article class="customer-data">
-
-
     <div><a name="checkout"><h2>Kassan - fyll i dina uppgifter</h2></a></div>
-
-
-
-    <form class="name-address-form">
-      
-        <label class="card-info">
-          <span class="personal-id-text">Förnamn</span>
-          <input type="text" name="name" placeholder="Förnamn">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Efternamn</span>
-          <input type="text" name="name" placeholder="Efternamn">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Adress, gata</span>
-          <input type="text" name="address" placeholder="Adress, gata">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Postnummer</span>
-          <input type="number" name="zip-code" class="small" placeholder="123">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Portkod (om det finns)</span>
-          <input type="number" name="door-code" class="small" placeholder="1234">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Stad</span>
-          <input type="text" name="city" placeholder="Stad">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Telefon (Mobil)</span>
-          <input type="tel" name="phone" placeholder="+467" >
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">E-post</span>
-          <input type="email" name="email" placeholder="name@name.com">
-        </label>
-        <label class="card-info">
-          <span class="personal-id-text">Rabattkod</span>
-          <input type="text" id="discountCode" name="rabattkod" placeholder="Rabattkod">
-        </label>
-
-      <div class="form-buttons">
-        <label>
-          <input class="cancel-button" type="reset" value="Rensa">
-        </label>
-        <label>
-          <input class="request-button" type="submit" value="Gå vidare">
-      </label>
-    </div>
-    </form>
-
-    <form>
-      <div class="payment-options">                                         <!-- Payment - options  -->
-        <div class="selector">
-          <input  type="radio" name="payment-option" value="invoice">      <!--Faktura INPUT-->
-          <span>Faktura</span>                                            <!--Faktura Text-->
-      
-          <input type="radio" name="payment-option" value="2222405343248877" checked>         <!--Kort INPUT-->
-          <span>Kort</span>                                                                   <!--Kort Text-->
-        </div>
-      
-        <div class="invoice hidden" id="invoice">
-          <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
-          <input type="text" name="personal-id" id="personalId" value="19720404-1234">               <!--Personnummer INPUT-->
-        </div>
-      
-        <div class="card" id="card">
+      <form class="name-address-form">
           <label class="card-info">
-            <span class="card-number-text">Kortnummer</span>                                             <!--Kortnummer Text-->
-            <input type="number" id="creditCardNumber" value="5555500830030331">                            <!--Kortnummer INPUT-->
+            <span class="personal-id-text">Förnamn</span>
+            <input type="text" name="name" placeholder="Förnamn">
           </label>
           <label class="card-info">
-            <span class="card-date-text">Datum</span>
-            <input type="number" class="small" placeholder="YY" id="creditCardYear"> / <input type="number" class="small" placeholder="MM" id="creditCardMonth">
+            <span class="personal-id-text">Efternamn</span>
+            <input type="text" name="name" placeholder="Efternamn">
           </label>
-          <label class="card-cvc">
-            <span class="cvc-text">CVC</span>
-            <input type="number" class="small" placeholder="123" id="creditCardCvc">
+          <label class="card-info">
+            <span class="personal-id-text">Adress, gata</span>
+            <input type="text" name="address" placeholder="Adress, gata">
+          </label>
+          <label class="card-info">
+            <span class="personal-id-text">Postnummer</span>
+            <input type="number" name="zip-code" class="small" placeholder="123">
+          </label>
+          <label class="card-info">
+            <span class="personal-id-text">Portkod (om det finns)</span>
+            <input type="number" name="door-code" class="small" placeholder="1234">
+          </label>
+          <label class="card-info">
+            <span class="personal-id-text">Stad</span>
+            <input type="text" name="city" placeholder="Stad">
+          </label>
+          <label class="card-info">
+            <span class="personal-id-text">Telefon (Mobil)</span>
+            <input type="tel" name="phone" placeholder="+467" >
+          </label>
+          <label class="card-info">
+            <span class="personal-id-text">E-post</span>
+            <input type="email" name="email" placeholder="name@name.com">
+          </label>
+          <label class="card-info">
+            <span class="personal-id-text">Rabattkod</span>
+            <input type="text" id="discountCode" name="rabattkod" placeholder="Rabattkod">
+          </label>
+        <div class="form-buttons">
+          <label>
+            <input class="cancel-button" type="reset" value="Rensa">
+          </label>
+          <label>
+            <input class="request-button" type="submit" value="Gå vidare">
           </label>
         </div>
-        <div class="checkboxes">
-          <div><input type="checkbox" checked><label>Ja tack! Jag vill prenumerera på nyhetsbrevet.</label></div>
-          <div><input type="checkbox"><label>Jag godkänner att mina personuppgifter används.</label></div>
+      </form>
+
+      <form>
+        <div class="payment-options">                                         <!-- Payment - options  -->
+          <div class="selector">
+            <input  type="radio" name="payment-option" value="invoice">      <!--Faktura INPUT-->
+            <span>Faktura</span>                                            <!--Faktura Text-->
+        
+            <input type="radio" name="payment-option" value="2222405343248877" checked>         <!--Kort INPUT-->
+            <span>Kort</span>                                                                   <!--Kort Text-->
+          </div>
+        
+          <div class="invoice hidden" id="invoice">
+            <span class="personal-id-text">Personnummer</span>                                         <!--Personnummer Text-->
+            <input type="text" name="personal-id" id="personalId" value="19720404-1234">               <!--Personnummer INPUT-->
+          </div>
+        
+          <div class="card" id="card">
+            <label class="card-info">
+              <span class="card-number-text">Kortnummer</span>                                             <!--Kortnummer Text-->
+              <input type="number" id="creditCardNumber" value="5555500830030331">                            <!--Kortnummer INPUT-->
+            </label>
+            <label class="card-info">
+              <span class="card-date-text">Datum</span>
+              <input type="number" class="small" placeholder="YY" id="creditCardYear"> / <input type="number" class="small" placeholder="MM" id="creditCardMonth">
+            </label>
+            <label class="card-cvc">
+              <span class="cvc-text">CVC</span>
+              <input type="number" class="small" placeholder="123" id="creditCardCvc">
+            </label>
+          </div>
+          <div class="checkboxes">
+            <div><input type="checkbox" checked><label>Ja tack! Jag vill prenumerera på nyhetsbrevet.</label></div>
+            <div><input type="checkbox"><label>Jag godkänner att mina personuppgifter används.</label></div>
+          </div>
+          <button class="cancel-btn" type="reset" id="cancelBtn">Rensa</button>
+          <button class="order-btn" id="orderBtn" disabled>Beställ</button>
         </div>
-        <button class="cancel-btn" type="reset" id="cancelBtn">Rensa</button>
-        <button class="order-btn" id="orderBtn" disabled>Beställ</button>
-      </div>
-  </form>
+      </form>
     
-    
-    
-    
-
-
-
-
-
-
-
-
-
-
-  </article>
-</section>
- 
-
-
-
-
-
-
- <section class="void-right">lorem ipsum</section>
+        </article>
+ </section>
+<section class="void-right"></section>
 </main>
 
-<script type="module" src="js/script.mjs"></script>   
-<script type="module" src="js/ducks.mjs"></script> 
+    <script type="module" src="js/script.mjs"></script>   
+    <script type="module" src="js/ducks.mjs"></script> 
 </body>
 </html>
