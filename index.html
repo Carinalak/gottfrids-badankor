@@ -33,7 +33,7 @@
   </div>
 
  <form id="categoryForm" class="form-drop-down">
-    <select id="categorySelect" name="Välj kategori" placeholder="Välj kategori">
+    <select id="categorySelect" class="form-drop-down-inner" name="Välj kategori" placeholder="Välj kategori">
       <option selected>Välj kategori</option>
       <option value="all">Alla</option>
       <option value="girl">Ankor tjejer</option>
@@ -42,10 +42,10 @@
  </form> 
 
  <form id="sortForm" class="form-drop-down">
-    <select id="sortSelect">
+    <select id="sortSelect" class="form-drop-down-inner" name="Sortera efter" placeholder="Sortera efter">
       <option selected>Sortera efter</option>
-      <option value="nameAlphaFirst">Namn alfabetisk ordning</option>
-      <option value="nameAlphaLast">Namn alfabetisk bakvänt</option>
+      <option value="nameAlphaFirst">Namn ner</option>
+      <option value="nameAlphaLast">Namn upp</option>
       <option value="priceLowFirst">Lägsta pris</option>
       <option value="priceHighFirst">Högsta pris</option>
       <option value="ratingLowFirst">Lägsta rankning</option>
@@ -192,8 +192,8 @@
           <div><input type="checkbox" checked><label>Ja tack! Jag vill prenumerera på nyhetsbrevet.</label></div>
           <div><input type="checkbox"><label>Jag godkänner att mina personuppgifter används.</label></div>
         </div>
-        <button class="order-btn" id="orderBtn" disabled>Beställ</button>
         <button class="cancel-btn" type="reset" id="cancelBtn">Rensa</button>
+        <button class="order-btn" id="orderBtn" disabled>Beställ</button>
       </div>
   </form>
     

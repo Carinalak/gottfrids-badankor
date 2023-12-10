@@ -214,21 +214,24 @@ function printCartDucks() {
 // Problem: När jag deletar en produkt från varukorgen, dyker först meddelandet "Varukorgen är tom" upp, som det ska.
 // Det ersätts dock med timer-meddelandet efter den tid timern är inställd, som jag inte vill ha där då.
 
+    setTimeout(clearCartHtmlContainer, 900000);
 
-    setTimeout(clearCartHtmlContainer, 5000);
-    
     function clearCartHtmlContainer() {
         totalItemsInCart = 0;
         ducks.forEach((duck) => {
         duck.amount = 0;
     });
-    
     updateCartIcon();
     printDucks();
     printCartDucks();
 
     cartHtmlContainer.innerHTML = 'Det har tagit för lång tid, varukorgen har tömts.';
+
+   // setTimeout(() => {
+    //    cartHtmlContainer.innerHTML = `<p>Varukorgen är tom. Hitta något att köpa.</p>`; 
+   // }, 1000000);
     } 
+   
     
 // ---------------------------------------- TIMER END --------------------------------------------------------------------
 
@@ -257,7 +260,6 @@ if (totalItemsInCart > 0) {
     cartMenu.innerHTML = `<p class="total-menu">Totalt: 0 kr</p>`;
     return;
 }  
-
     cartMenu.innerHTML = ''; 
     cartMenu.innerHTML += `<p class="total-menu">Totalt: ${sumShipping} kr
     `;
@@ -265,8 +267,6 @@ if (totalItemsInCart > 0) {
     addBtnEventListeners();
 }
 printDucks();
-
-
 
 
 function addBtnEventListeners() {
@@ -309,8 +309,6 @@ const orderBtn = document.querySelector('#orderBtn');
 
 // Default options
 let selectedPaymentOption = 'invoice';
-
- 
 // REG EX:
 const personalIdRegEx = new RegExp(/^(\d{10}|\d{12}|\d{6}-\d{4}|\d{8}-\d{4}|\d{8} \d{4}|\d{6} \d{4})/);
 const creditCardNumberRegEx = new RegExp(/^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$/); //MasterCard
@@ -324,27 +322,22 @@ cardInvoiceRadios.forEach(radioBtn => {
     radioBtn.addEventListener('change', switchPaymentMethod);
 });
 
-
  // switches between invoice and card payment method. Toggles their visibility.
 function switchPaymentMethod(e) {
     invoiceOption.classList.toggle('hidden');
     cardOption.classList.toggle('hidden');
-
     selectedPaymentOption = e.target.value;
 }
-
 function isPersonalIdNumberValid() {                    
     return personalIdRegEx.exec(personalId.value);
 }
-
-
 function activateOrderButton() {                                                        
     orderBtn.setAttribute('disabled', '');
     
     if (selectedPaymentOption === 'invoice' && isPersonalIdNumberValid()) {
         orderBtn.removeAttribute('disabled');
     }   else if (selectedPaymentOption === 'invoice' && !isPersonalIdNumberValid()) {
-        //orderBtn.setAttribute('disabled', '');
+        orderBtn.setAttribute('disabled', '');
         return;
     }   else if (selectedPaymentOption === 'card') {
         // check card number
