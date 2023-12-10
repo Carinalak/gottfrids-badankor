@@ -24,11 +24,37 @@ JavaScript-filerna finns i två moduler, ducks.mjs där jag har listan på alla 
 
 Jag har använt Photoshop till att beskära alla bilder så att de har samma storlek och proportioner.
 
-Jag gjorde wireframes i Figma. Dessa är bara ett exempel, så jag kan se hur jag vill ha det på ett ungefär. Slutresultatet blir inte exakt samma, eftersom jag ändrade mig hur jag ville ha det under arbetets gång. För mobilversionen:
+Jag gjorde wireframes för mobilversionen i Figma. Dessa är bara ett exempel, så jag kan se hur jag vill ha det på ett ungefär. Slutresultatet blir inte exakt samma, eftersom jag ändrade mig hur jag ville ha det under arbetets gång:
 
-![Wireframe för mobil version](img/wireframe/mobile.png)
+![Wireframe för mobil version](img/screenshots/wireframe.png)
 
-Såhär ser min webshop ut i min dator, en skärmdump:
 
+Såhär ser webshopen ut i desktop-versionen:
+![Webshop](img/screenshots/webshop.png)
+
+Såhär ser varukorgen ut när det är varor i den:
+![Varukorg](img/screenshots/cart.png)
+
+Formuläret:
+![Varukorg](img/screenshots/form.png)
+
+Såhär ser webshopen ut i mobil-versionen:
+![Webshop](img/screenshots/shop-mobil.png)
+![Webshop](img/screenshots/cart-mobil.png)
+![Webshop](img/screenshots/form-mobil.png)
 
 Webshopen är validerad och nedan kan du se skärmdumpar:
+
+Validerad HTML:
+![Webshop](img/validering/html-val-1.png)
+![Webshop](img/validering/html-val-2.png)
+![Webshop](img/validering/html-val-3.png)
+
+Validerad CSS:
+![Webshop](img/validering/css-mobil-val.png)
+![Webshop](img/validering/css-navigation-val.png)
+![Webshop](img/validering/css-style-val.png)
+![Webshop](img/validering/css-tablet-val.png)
+
+Lighthouse-analys:
+![Webshop](img/validering/lighthouse-analys.png)
